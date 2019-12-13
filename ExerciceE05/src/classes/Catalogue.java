@@ -44,7 +44,7 @@ public class Catalogue implements I_Catalogue {
         }
         if(ajoute)
         {
-            Produit produit = new Produit(nom, prix, qte);
+            Produit produit = new Produit(qte, nom ,prix);
             ensembleProduits.add(produit);
         }
         return ajoute;
