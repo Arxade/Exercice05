@@ -1,3 +1,4 @@
+package classes;
 import java.util.List; 
 
 public interface I_Catalogue {
