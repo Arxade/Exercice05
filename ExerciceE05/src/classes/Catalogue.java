@@ -13,14 +13,41 @@ import java.util.List;
  */
 public class Catalogue implements I_Catalogue {
 
+    private List<I_Produit> ensembleProduits;
+    
     @Override
     public boolean addProduit(I_Produit produit) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        boolean ajoute=true;
+        for(I_Produit p: ensembleProduits)
+        {
+            if(p.getNom() == produit.getNom())
+            {
+                ajoute=false;
+            }
+        }
+        if(ajoute)
+        {
+            ensembleProduits.add(produit);
+        }
+        return ajoute;
     }
 
     @Override
     public boolean addProduit(String nom, double prix, int qte) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        boolean ajoute=true;
+        for(I_Produit p: ensembleProduits)
+        {
+            if(p.getNom() == nom)
+            {
+                ajoute=false;
+            }
+        }
+        if(ajoute)
+        {
+            Produit produit = new Produit(nom, prix, qte);
+            ensembleProduits.add(produit);
+        }
+        return ajoute;
     }
 
     @Override
