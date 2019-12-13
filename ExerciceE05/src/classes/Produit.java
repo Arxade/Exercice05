@@ -50,12 +50,12 @@ public class Produit implements I_Produit {
         this.prixUnitaireHT = prixUnitaireHT;
     }
 
-    public double getTauxTVA() {
+    public static double getTauxTVA() {
         return tauxTVA;
     }
 
-    public void setTauxTVA(double tauxTVA) {
-        this.tauxTVA = tauxTVA;
+    public static void setTauxTVA(double tauxTVA) {
+        Produit.tauxTVA = tauxTVA;
     }
 
     @Override
