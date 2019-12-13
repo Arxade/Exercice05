@@ -1,3 +1,5 @@
+package classes;
+
 public interface I_Produit {
 
 	public abstract boolean ajouter(int qteAchetee);
