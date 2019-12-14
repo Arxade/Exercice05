@@ -9,6 +9,6 @@ package controleurs;
  *
  * @author diazt
  */
-public class controleurTransaction {
+public class controleurTransaction extends Controleur{
     
 }
