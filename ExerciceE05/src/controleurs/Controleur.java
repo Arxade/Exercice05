@@ -15,4 +15,9 @@ public class Controleur {
     
     private static Catalogue catalogue;
     
+    public Catalogue getCatalogue()
+    {
+        return catalogue;
+    }
+    
 }
