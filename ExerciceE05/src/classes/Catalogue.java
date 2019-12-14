@@ -52,27 +52,97 @@ public class Catalogue implements I_Catalogue {
 
     @Override
     public int addProduits(List<I_Produit> l) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        int i = 0;
+        for(I_Produit prod:l)
+        {
+            ensembleProduits.add(prod);
+            i++;
+        }
+        return i;
     }
 
     @Override
     public boolean removeProduit(String nom) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        boolean remove = false;
+        I_Produit produitAEfface = null;
+        for(I_Produit prod: ensembleProduits)
+        {
+            if(prod.getNom() == nom)
+            {
+                remove = true;
+                produitAEfface = prod;
+            }
+        }
+        
+        if(remove)
+        {
+            ensembleProduits.remove(produitAEfface);
+        }
+        
+        return remove;
     }
 
     @Override
     public boolean acheterStock(String nomProduit, int qteAchetee) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        I_Produit produitAchete = null;
+        int index = 0;
+        int i = 0 ;
+        boolean achete = false;
+        for( I_Produit prod : ensembleProduits )
+        {
+            if(prod.getNom() == nomProduit)
+            {
+                produitAchete = prod;
+                produitAchete.ajouter(qteAchetee) ;
+                achete = true;
+                index = i;
+            }
+            i++;
+            
+            if(achete)
+            {
+                ensembleProduits.set(index , produitAchete);
+            }
+        }
+        return achete;
     }
 
     @Override
     public boolean vendreStock(String nomProduit, int qteVendue) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        I_Produit produitVendu = null;
+        int index = 0;
+        int i = 0 ;
+        boolean vendu = false;
+        for( I_Produit prod : ensembleProduits )
+        {
+            if(prod.getNom() == nomProduit)
+            {
+                produitVendu = prod;
+                produitVendu.enlever(qteVendue) ;
+                vendu = true;
+                index = i;
+            }
+            i++;
+            
+            if(vendu)
+            {
+                ensembleProduits.set(index , produitVendu);
+            }
+        }
+        return vendu;
     }
 
     @Override
     public String[] getNomProduits() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String[] lesNoms = new String[ensembleProduits.size()];
+        int i =0;
+        for( I_Produit produit : ensembleProduits )
+        {
+            lesNoms[i] = produit.getNom();
+            i++;
+        }
+        
+        return lesNoms ;
     }
 
     @Override
@@ -82,7 +152,7 @@ public class Catalogue implements I_Catalogue {
 
     @Override
     public void clear() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ensembleProduits.removeAll(ensembleProduits);
     }
     
 }
