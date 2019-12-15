@@ -15,12 +15,12 @@ public class Produit implements I_Produit {
     private String nom;
     private double prixUnitaireHT;
     static private double tauxTVA = 0.2;
-            
+
     public Produit() {
-        
+
     }
 
-    public Produit(int quantiteStock, String nom, double prixUnitaireHT) {
+    public Produit(String nom, double prixUnitaireHT, int quantiteStock) {
         this.quantiteStock = quantiteStock;
         this.nom = nom;
         this.prixUnitaireHT = prixUnitaireHT;
@@ -50,45 +50,50 @@ public class Produit implements I_Produit {
         this.prixUnitaireHT = prixUnitaireHT;
     }
 
-    public double getTauxTVA() {
+    public static double getTauxTVA() {
         return tauxTVA;
     }
 
-    public void setTauxTVA(double tauxTVA) {
-        this.tauxTVA = tauxTVA;
+    public static void setTauxTVA(double tauxTVA) {
+        Produit.tauxTVA = tauxTVA;
     }
 
     @Override
     public String toString() {
-        return super.toString(); //To change body of generated methods, choose Tools | Templates.
+        return "Nom du produit : " + nom + "\nPrix HT : " + prixUnitaireHT + "€" + "\nStock : " + quantiteStock;
     }
 
     @Override
     public boolean ajouter(int qteAchetee) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        quantiteStock = quantiteStock + qteAchetee;
+        return true;
     }
 
     @Override
     public boolean enlever(int qteVendue) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if (quantiteStock - qteVendue >= 0) {
+            quantiteStock = quantiteStock - qteVendue;
+            return true;
+        } else {
+            System.out.println("Stock épuisé ou insuffisant");
+        }
+        return false;
+
     }
 
     @Override
     public int getQuantite() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return quantiteStock;
     }
 
     @Override
     public double getPrixUnitaireTTC() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return prixUnitaireHT * tauxTVA;
     }
 
     @Override
     public double getPrixStockTTC() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return prixUnitaireHT * tauxTVA * quantiteStock;
     }
-    
-    
-    
-    
+
 }
