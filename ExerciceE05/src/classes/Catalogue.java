@@ -147,7 +147,13 @@ public class Catalogue implements I_Catalogue {
 
     @Override
     public double getMontantTotalTTC() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        double total = 0;
+        for ( I_Produit produit : ensembleProduits)
+        {
+            total = total + produit.getPrixUnitaireTTC();
+        }
+        
+        return total ;
     }
 
     @Override
