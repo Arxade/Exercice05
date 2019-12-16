@@ -28,7 +28,7 @@ public class Catalogue implements I_Catalogue {
     @Override
     public boolean addProduit(I_Produit produit) {
         boolean ajoute = true;
-                if (produit == null || produit.getPrixUnitaireHT() <= 0 || produit.getQuantite() <= 0) {
+        if (produit == null || produit.getPrixUnitaireHT() <= 0 || produit.getQuantite() < 0) {
             ajoute = false;
         }
         for (I_Produit p : ensembleProduits) {
@@ -45,10 +45,10 @@ public class Catalogue implements I_Catalogue {
     @Override
     public boolean addProduit(String nom, double prix, int qte) {
         boolean ajoute = true;
-        if  (prix <= 0 || qte <= 0){
+        if (prix <= 0 || qte < 0) {
             ajoute = false;
         }
-        
+
         for (I_Produit p : ensembleProduits) {
             if (p.getNom() == nom) {
                 ajoute = false;
@@ -101,7 +101,7 @@ public class Catalogue implements I_Catalogue {
         int i = 0;
         boolean achete = false;
         for (I_Produit prod : ensembleProduits) {
-            if (prod.getNom() == nomProduit) {
+            if (prod.getNom() == nomProduit && qteAchetee > 0) {
                 produitAchete = prod;
                 produitAchete.ajouter(qteAchetee);
                 achete = true;
@@ -117,6 +117,8 @@ public class Catalogue implements I_Catalogue {
     public boolean vendreStock(String nomProduit, int qteVendue) {
         I_Produit produitVendu = null;
         boolean vendu = false;
+        if (qteVendue <= 0)
+            return false;
         for (I_Produit prod : ensembleProduits) {
             if (prod.getNom() == nomProduit) {
                 produitVendu = prod;

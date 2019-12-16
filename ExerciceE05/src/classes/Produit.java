@@ -22,9 +22,10 @@ public class Produit implements I_Produit {
     }
 
     public Produit(String nom, double prixUnitaireHT, int quantiteStock) {
-        if (prixUnitaireHT > 0 && quantiteStock > 0){        
+        if (prixUnitaireHT > 0 && quantiteStock >= 0){
+        nom = nom.replace("\t"," ");
         this.quantiteStock = quantiteStock;
-        this.nom = nom;
+        this.nom = nom.trim();
         this.prixUnitaireHT = prixUnitaireHT;}
 
     }
@@ -42,7 +43,8 @@ public class Produit implements I_Produit {
     }
 
     public void setNom(String nom) {
-        this.nom = nom;
+        nom = nom.replace("\t"," ");
+        this.nom = nom.trim();
     }
 
     public double getPrixUnitaireHT() {
