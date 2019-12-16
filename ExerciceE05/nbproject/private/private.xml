@@ -3,25 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/D:/NetBeans/git/ExerciceE05/ExerciceE05/src/interfaces/FenetreVente.java</file>
-            <file>file:/D:/NetBeans/git/ExerciceE05/ExerciceE05/src/exercicee05/ExerciceE05.java</file>
-            <file>file:/D:/NetBeans/git/ExerciceE05/ExerciceE05/src/classes/I_Produit.java</file>
-            <file>file:/D:/NetBeans/git/ExerciceE05/ExerciceE05/src/controleurs/Controleur.java</file>
-            <file>file:/D:/NetBeans/git/ExerciceE05/ExerciceE05/src/controleurs/controleurProduit.java</file>
-            <file>file:/D:/NetBeans/git/ExerciceE05/ExerciceE05/src/interfaces/FenetreAffichage.java</file>
-            <file>file:/D:/NetBeans/git/ExerciceE05/ExerciceE05/src/classes/Produit.java</file>
-            <file>file:/D:/NetBeans/git/ExerciceE05/ExerciceE05/src/controleurs/controleurTransaction.java</file>
-            <file>file:/D:/NetBeans/git/ExerciceE05/ExerciceE05/src/classes/I_Catalogue.java</file>
-            <file>file:/D:/NetBeans/git/ExerciceE05/ExerciceE05/src/interfaces/FenetreSuppressionProduit.java</file>
-            <file>file:/D:/NetBeans/git/ExerciceE05/ExerciceE05/src/classes/Catalogue.java</file>
-            <file>file:/D:/NetBeans/git/ExerciceE05/ExerciceE05/src/interfaces/FenetrePrincipale.java</file>
-            <file>file:/D:/NetBeans/git/ExerciceE05/ExerciceE05/src/controleurs/controleurStock.java</file>
-            <file>file:/D:/NetBeans/git/ExerciceE05/ExerciceE05/src/interfaces/FenetreNouveauProduit.java</file>
-            <file>file:/D:/NetBeans/git/ExerciceE05/ExerciceE05/src/interfaces/FenetreAchat.java</file>
-=======
             <file>file:/home/licence/diazt/ExerciceE05/ExerciceE05/ExerciceE05/src/classes/Produit.java</file>
             <file>file:/home/licence/diazt/ExerciceE05/ExerciceE05/ExerciceE05/src/classes/Catalogue.java</file>
+            <file>file:/home/licence/diazt/ExerciceE05/ExerciceE05/ExerciceE05/src/classes/CatalogueTest2.java</file>
             <file>file:/home/licence/diazt/ExerciceE05/ExerciceE05/ExerciceE05/src/classes/I_Catalogue.java</file>
             <file>file:/home/licence/diazt/ExerciceE05/ExerciceE05/ExerciceE05/src/controleurs/controleurProduit.java</file>
             <file>file:/home/licence/diazt/ExerciceE05/ExerciceE05/ExerciceE05/src/interfaces/FenetreAffichage.java</file>
@@ -29,7 +13,6 @@
             <file>file:/home/licence/diazt/ExerciceE05/ExerciceE05/ExerciceE05/src/classes/I_Produit.java</file>
             <file>file:/home/licence/diazt/ExerciceE05/ExerciceE05/ExerciceE05/src/controleurs/controleurTransaction.java</file>
             <file>file:/home/licence/diazt/ExerciceE05/ExerciceE05/ExerciceE05/src/exercicee05/ExerciceE05.java</file>
->>>>>>> 33181b85cc059615f91990fbc797a8b13371827f
         </group>
     </open-files>
 </project-private>

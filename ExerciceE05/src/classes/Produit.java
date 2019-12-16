@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package classes;
+import java.lang.Math;
 
 /**
  *
@@ -76,8 +77,9 @@ public class Produit implements I_Produit {
             return true;
         } else {
             System.out.println("Stock épuisé ou insuffisant");
+                    return false;
+
         }
-        return false;
 
     }
 
@@ -88,12 +90,14 @@ public class Produit implements I_Produit {
 
     @Override
     public double getPrixUnitaireTTC() {
-        return prixUnitaireHT * tauxTVA;
+       double res = prixUnitaireHT * tauxTVA;
+       return Math.round( res * 100 ) / 100;
     }
 
     @Override
     public double getPrixStockTTC() {
-        return prixUnitaireHT * tauxTVA * quantiteStock;
+       double res = prixUnitaireHT * tauxTVA * quantiteStock;
+       return Math.round( res * 100 ) / 100;
     }
 
 }

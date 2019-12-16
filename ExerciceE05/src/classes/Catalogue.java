@@ -5,6 +5,7 @@
  */
 package classes;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -13,7 +14,13 @@ import java.util.List;
  */
 public class Catalogue implements I_Catalogue {
 
-    private List<I_Produit> ensembleProduits;
+    private ArrayList<I_Produit> ensembleProduits;
+
+    public Catalogue() {
+      ensembleProduits = new ArrayList<I_Produit>();
+    }
+    
+    
     
     @Override
     public boolean addProduit(I_Produit produit) {
@@ -98,11 +105,7 @@ public class Catalogue implements I_Catalogue {
                 index = i;
             }
             i++;
-            
-            if(achete)
-            {
-                ensembleProduits.set(index , produitAchete);
-            }
+           
         }
         return achete;
     }
@@ -110,24 +113,15 @@ public class Catalogue implements I_Catalogue {
     @Override
     public boolean vendreStock(String nomProduit, int qteVendue) {
         I_Produit produitVendu = null;
-        int index = 0;
-        int i = 0 ;
         boolean vendu = false;
         for( I_Produit prod : ensembleProduits )
         {
             if(prod.getNom() == nomProduit)
             {
                 produitVendu = prod;
-                produitVendu.enlever(qteVendue) ;
-                vendu = true;
-                index = i;
+                return produitVendu.enlever(qteVendue) ;
             }
-            i++;
-            
-            if(vendu)
-            {
-                ensembleProduits.set(index , produitVendu);
-            }
+
         }
         return vendu;
     }
@@ -150,7 +144,7 @@ public class Catalogue implements I_Catalogue {
         double total = 0;
         for ( I_Produit produit : ensembleProduits)
         {
-            total = total + produit.getPrixUnitaireTTC();
+            total = total + produit.getPrixStockTTC();
         }
         
         return total ;
