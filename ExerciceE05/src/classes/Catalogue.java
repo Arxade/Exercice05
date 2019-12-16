@@ -22,7 +22,12 @@ public class Catalogue implements I_Catalogue {
 
     @Override
     public String toString() {
-        return "Catalogue{" + "ensembleProduits=" + ensembleProduits + '}';
+        String chaine ="";
+        for (I_Produit p : ensembleProduits)
+        {
+            chaine = chaine + p.toString();
+        }
+        return  chaine + "\nMontant total TTC du stock : " + getMontantTotalTTC() + " €" ;
     }
 
     @Override
@@ -32,7 +37,7 @@ public class Catalogue implements I_Catalogue {
             ajoute = false;
         }
         for (I_Produit p : ensembleProduits) {
-            if (p.getNom() == produit.getNom()) {
+            if (p.getNom().equals(produit.getNom())) {
                 ajoute = false;
             }
         }
@@ -50,7 +55,7 @@ public class Catalogue implements I_Catalogue {
         }
 
         for (I_Produit p : ensembleProduits) {
-            if (p.getNom() == nom) {
+            if (p.getNom().equals(nom)) {
                 ajoute = false;
             }
         }
@@ -66,6 +71,8 @@ public class Catalogue implements I_Catalogue {
         int i = 0;
         if (liste != null) {
             for (I_Produit prod : liste) {
+             //   for (I_Produit p : ensembleProduits)
+             //       if (p.getNom().equals(prod.getNom()))
                 if (prod.getPrixUnitaireHT() > 0 && prod.getQuantite() >= 0) {
                     ensembleProduits.add(prod);
                     i++;
@@ -81,7 +88,7 @@ public class Catalogue implements I_Catalogue {
         boolean remove = false;
         I_Produit produitAEfface = null;
         for (I_Produit prod : ensembleProduits) {
-            if (prod.getNom() == nom) {
+            if (prod.getNom().equals(nom)) {
                 remove = true;
                 produitAEfface = prod;
             }
@@ -101,7 +108,7 @@ public class Catalogue implements I_Catalogue {
         int i = 0;
         boolean achete = false;
         for (I_Produit prod : ensembleProduits) {
-            if (prod.getNom() == nomProduit && qteAchetee > 0) {
+            if (prod.getNom().equals(nomProduit) && qteAchetee > 0) {
                 produitAchete = prod;
                 produitAchete.ajouter(qteAchetee);
                 achete = true;
@@ -120,7 +127,7 @@ public class Catalogue implements I_Catalogue {
         if (qteVendue <= 0)
             return false;
         for (I_Produit prod : ensembleProduits) {
-            if (prod.getNom() == nomProduit) {
+            if (prod.getNom().equals(nomProduit)) {
                 produitVendu = prod;
                 return produitVendu.enlever(qteVendue);
             }

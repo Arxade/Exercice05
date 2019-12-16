@@ -65,7 +65,8 @@ public class Produit implements I_Produit {
 
     @Override
     public String toString() {
-        return "Nom du produit : " + nom + "\nPrix HT : " + prixUnitaireHT + "€" + "\nStock : " + quantiteStock;
+        return nom + " - prix HT : " + prixUnitaireHT + " € " + "- prix TTC : " 
+                + getPrixUnitaireTTC() + " € - quantité en stock : " + quantiteStock + " \n";
     }
 
     @Override

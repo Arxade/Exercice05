@@ -172,6 +172,7 @@ public class CatalogueTest {
 	public void testAddProduitStringDoubleInt_deuxFoisProduitMemeNomEspacesAuDebut() {
 		I_Produit p1 = createProduit("Mars", 10, 1);
 		cat.addProduit(p1);
+                                System.out.println(cat);
 		assertFalse("ajout deux fois même produit mais un avec espaces au début", cat.addProduit(" Mars", 10, 1));
 	}
 
