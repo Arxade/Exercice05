@@ -28,13 +28,13 @@ public class Catalogue implements I_Catalogue {
     @Override
     public boolean addProduit(I_Produit produit) {
         boolean ajoute = true;
+                if (produit == null || produit.getPrixUnitaireHT() <= 0 || produit.getQuantite() <= 0) {
+            ajoute = false;
+        }
         for (I_Produit p : ensembleProduits) {
             if (p.getNom() == produit.getNom()) {
                 ajoute = false;
             }
-        }
-        if (produit.getPrixUnitaireHT() <= 0 || produit.getQuantite() <= 0 || produit == null) {
-            ajoute = false;
         }
         if (ajoute) {
             ensembleProduits.add(produit);
@@ -45,8 +45,12 @@ public class Catalogue implements I_Catalogue {
     @Override
     public boolean addProduit(String nom, double prix, int qte) {
         boolean ajoute = true;
+        if  (prix <= 0 || qte <= 0){
+            ajoute = false;
+        }
+        
         for (I_Produit p : ensembleProduits) {
-            if (p.getNom() == nom || prix <= 0 || qte <= 0) {
+            if (p.getNom() == nom) {
                 ajoute = false;
             }
         }
