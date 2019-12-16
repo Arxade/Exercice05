@@ -4,15 +4,7 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/home/licence/diazt/ExerciceE05/ExerciceE05/ExerciceE05/src/classes/Produit.java</file>
-            <file>file:/home/licence/diazt/ExerciceE05/ExerciceE05/ExerciceE05/src/classes/Catalogue.java</file>
-            <file>file:/home/licence/diazt/ExerciceE05/ExerciceE05/ExerciceE05/src/classes/CatalogueTest2.java</file>
-            <file>file:/home/licence/diazt/ExerciceE05/ExerciceE05/ExerciceE05/src/classes/I_Catalogue.java</file>
-            <file>file:/home/licence/diazt/ExerciceE05/ExerciceE05/ExerciceE05/src/controleurs/controleurProduit.java</file>
-            <file>file:/home/licence/diazt/ExerciceE05/ExerciceE05/ExerciceE05/src/interfaces/FenetreAffichage.java</file>
-            <file>file:/home/licence/diazt/ExerciceE05/ExerciceE05/ExerciceE05/src/controleurs/controleurStock.java</file>
-            <file>file:/home/licence/diazt/ExerciceE05/ExerciceE05/ExerciceE05/src/classes/I_Produit.java</file>
-            <file>file:/home/licence/diazt/ExerciceE05/ExerciceE05/ExerciceE05/src/controleurs/controleurTransaction.java</file>
-            <file>file:/home/licence/diazt/ExerciceE05/ExerciceE05/ExerciceE05/src/exercicee05/ExerciceE05.java</file>
+            <file>file:/home/licence/diazt/ExerciceE05/ExerciceE05/ExerciceE05/test/CatalogueTest.java</file>
         </group>
     </open-files>
 </project-private>
