@@ -90,13 +90,13 @@ public class Produit implements I_Produit {
 
     @Override
     public double getPrixUnitaireTTC() {
-       double res = prixUnitaireHT * tauxTVA;
+       double res = prixUnitaireHT * (1 + tauxTVA) ;
        return Math.round( res * 100 ) / 100;
     }
 
     @Override
     public double getPrixStockTTC() {
-       double res = prixUnitaireHT * tauxTVA * quantiteStock;
+       double res = (prixUnitaireHT *  quantiteStock) * (1 + tauxTVA) ;
        return Math.round( res * 100 ) / 100;
     }
 
