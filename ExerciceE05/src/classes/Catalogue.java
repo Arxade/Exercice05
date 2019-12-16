@@ -19,8 +19,11 @@ public class Catalogue implements I_Catalogue {
     public Catalogue() {
       ensembleProduits = new ArrayList<I_Produit>();
     }
-    
-    
+
+    @Override
+    public String toString() {
+        return "Catalogue{" + "ensembleProduits=" + ensembleProduits + '}';
+    }
     
     @Override
     public boolean addProduit(I_Produit produit) {

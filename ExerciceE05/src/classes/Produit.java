@@ -22,9 +22,11 @@ public class Produit implements I_Produit {
     }
 
     public Produit(String nom, double prixUnitaireHT, int quantiteStock) {
+        if (prixUnitaireHT > 0 && quantiteStock > 0){        
         this.quantiteStock = quantiteStock;
         this.nom = nom;
-        this.prixUnitaireHT = prixUnitaireHT;
+        this.prixUnitaireHT = prixUnitaireHT;}
+
     }
 
     public int getQuantiteStock() {
