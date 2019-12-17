@@ -7,6 +7,7 @@ package classes;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.math.*;
 
 /**
  *
@@ -27,7 +28,10 @@ public class Catalogue implements I_Catalogue {
         {
             chaine = chaine + p.toString();
         }
-        return  chaine + "\nMontant total TTC du stock : " + getMontantTotalTTC() + " €" ;
+        chaine = chaine + "\nMontant total TTC du stock : " + BigDecimal.valueOf(getMontantTotalTTC()).setScale(2, RoundingMode.HALF_UP) + " €" ;
+        return chaine.replace(".", ",");
+        
+        
     }
 
     @Override

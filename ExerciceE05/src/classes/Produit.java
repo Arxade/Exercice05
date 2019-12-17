@@ -5,6 +5,7 @@
  */
 package classes;
 import java.lang.Math;
+import java.math.*;
 
 /**
  *
@@ -15,7 +16,9 @@ public class Produit implements I_Produit {
     private int quantiteStock;
     private String nom;
     private double prixUnitaireHT;
-    static private double tauxTVA = 0.2;
+    private BigDecimal prixCalcul;
+    static private double tauxTVA = 1.20;
+    static private BigDecimal tauxTVACalcul = BigDecimal.valueOf(tauxTVA);
 
     public Produit() {
 
@@ -27,6 +30,7 @@ public class Produit implements I_Produit {
         this.quantiteStock = quantiteStock;
         this.nom = nom.trim();
         this.prixUnitaireHT = prixUnitaireHT;}
+        this.prixCalcul = BigDecimal.valueOf(prixUnitaireHT).setScale(2, RoundingMode.HALF_UP );
 
     }
 
@@ -53,6 +57,7 @@ public class Produit implements I_Produit {
 
     public void setPrixUnitaireHT(double prixUnitaireHT) {
         this.prixUnitaireHT = prixUnitaireHT;
+        this.prixCalcul = BigDecimal.valueOf(prixUnitaireHT).setScale(2, RoundingMode.HALF_UP );
     }
 
     public static double getTauxTVA() {
@@ -65,8 +70,10 @@ public class Produit implements I_Produit {
 
     @Override
     public String toString() {
-        return nom + " - prix HT : " + prixUnitaireHT + " € " + "- prix TTC : " 
-                + getPrixUnitaireTTC() + " € - quantité en stock : " + quantiteStock + " \n";
+        String chaine;
+        chaine = nom + " - prix HT : " + prixCalcul + " € " + "- prix TTC : " 
+                + BigDecimal.valueOf(getPrixUnitaireTTC()).setScale(2, RoundingMode.HALF_UP) + " € - quantité en stock : " + quantiteStock + " \n";
+        return chaine.replace(".", ",");
     }
 
     @Override
@@ -95,14 +102,15 @@ public class Produit implements I_Produit {
 
     @Override
     public double getPrixUnitaireTTC() {
-       double res = prixUnitaireHT * (1 + tauxTVA) ;
-       return Math.round( res * 100 ) / 100;
+       
+       double res = (prixCalcul.multiply(tauxTVACalcul)).setScale(2, RoundingMode.HALF_UP).doubleValue();
+       return res;
     }
 
     @Override
     public double getPrixStockTTC() {
-       double res = (prixUnitaireHT *  quantiteStock) * (1 + tauxTVA) ;
-       return Math.round( res * 100 ) / 100;
+       double res = (prixUnitaireHT *  quantiteStock) * (tauxTVA) ;
+       return res;
     }
 
 }

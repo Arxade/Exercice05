@@ -6,6 +6,7 @@
 package exercicee05;
 
 import interfaces.FenetrePrincipale;
+import classes.*;
 
 /**
  *
@@ -19,6 +20,8 @@ public class ExerciceE05 {
     public static void main(String[] args) {
 
         FenetrePrincipale fenetre = new FenetrePrincipale();
+        Produit mars = new Produit("mars", 10, 15);
+        System.out.println(mars.toString());
 
     }
 
