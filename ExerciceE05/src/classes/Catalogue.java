@@ -53,6 +53,8 @@ public class Catalogue implements I_Catalogue {
 
     @Override
     public boolean addProduit(String nom, double prix, int qte) {
+        nom = nom.replace("\t"," ");
+        nom = nom.trim();
         boolean ajoute = true;
         if (prix <= 0 || qte < 0) {
             ajoute = false;
@@ -158,7 +160,8 @@ public class Catalogue implements I_Catalogue {
         for (I_Produit produit : ensembleProduits) {
             total = total + produit.getPrixStockTTC();
         }
-
+        BigDecimal totalBG = BigDecimal.valueOf(total).setScale(2, RoundingMode.HALF_UP);
+        total = totalBG.doubleValue();
         return total;
     }
 

@@ -72,7 +72,7 @@ public class Produit implements I_Produit {
     public String toString() {
         String chaine;
         chaine = nom + " - prix HT : " + prixCalcul + " € " + "- prix TTC : " 
-                + BigDecimal.valueOf(getPrixUnitaireTTC()).setScale(2, RoundingMode.HALF_UP) + " € - quantité en stock : " + quantiteStock + " \n";
+                + BigDecimal.valueOf(getPrixUnitaireTTC()).setScale(2, RoundingMode.HALF_UP) + " € - quantité en stock : " + quantiteStock + "\n";
         return chaine.replace(".", ",");
     }
 
