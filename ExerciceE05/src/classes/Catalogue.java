@@ -8,6 +8,7 @@ package classes;
 import java.util.ArrayList;
 import java.util.List;
 import java.math.*;
+import java.util.Arrays;
 
 /**
  *
@@ -16,6 +17,12 @@ import java.math.*;
 public class Catalogue implements I_Catalogue {
 
     private ArrayList<I_Produit> ensembleProduits;
+
+    public ArrayList<I_Produit> getEnsembleProduits() {
+        return ensembleProduits;
+    }
+    
+    
 
     public Catalogue() {
         ensembleProduits = new ArrayList<I_Produit>();
@@ -70,14 +77,34 @@ public class Catalogue implements I_Catalogue {
         }
         return ajoute;
     }
-
+ // Function to remove duplicates from an ArrayList 
+    public static <I_Produit> List<I_Produit> removeDuplicates(List<I_Produit> list) 
+    { 
+  
+        // Create a new ArrayList 
+        List<I_Produit> newList = new ArrayList<I_Produit>(); 
+  
+        // Traverse through the first list 
+        for (I_Produit element : list) { 
+  
+            // If this element is not present in newList 
+            // then add it 
+            if (!newList.contains(element)) { 
+  
+                newList.add(element); 
+            } 
+        } 
+  
+        // return the new list 
+        return newList; 
+    } 
     @Override
     public int addProduits(List<I_Produit> catalogNew) {
         int i = 0;
         ArrayList<I_Produit> listeDoublons = new ArrayList<>();
-        ArrayList<I_Produit> listeFinale = new ArrayList<>();
         
         if (catalogNew != null) {
+        catalogNew = Catalogue.removeDuplicates(catalogNew);
             for (I_Produit produitOld : ensembleProduits) {
                 for (I_Produit produitNew : catalogNew) {
                     if (produitOld.getNom().equals(produitNew.getNom())) {
@@ -119,7 +146,6 @@ public class Catalogue implements I_Catalogue {
     @Override
     public boolean acheterStock(String nomProduit, int qteAchetee) {
         I_Produit produitAchete = null;
-        int index = 0;
         int i = 0;
         boolean achete = false;
         for (I_Produit prod : ensembleProduits) {
@@ -127,7 +153,6 @@ public class Catalogue implements I_Catalogue {
                 produitAchete = prod;
                 produitAchete.ajouter(qteAchetee);
                 achete = true;
-                index = i;
             }
             i++;
 
@@ -160,7 +185,7 @@ public class Catalogue implements I_Catalogue {
             lesNoms[i] = produit.getNom();
             i++;
         }
-
+        Arrays.sort(lesNoms);
         return lesNoms;
     }
 
