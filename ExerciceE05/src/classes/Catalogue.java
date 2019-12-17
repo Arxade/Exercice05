@@ -23,15 +23,13 @@ public class Catalogue implements I_Catalogue {
 
     @Override
     public String toString() {
-        String chaine ="";
-        for (I_Produit p : ensembleProduits)
-        {
+        String chaine = "";
+        for (I_Produit p : ensembleProduits) {
             chaine = chaine + p.toString();
         }
-        chaine = chaine + "\nMontant total TTC du stock : " + BigDecimal.valueOf(getMontantTotalTTC()).setScale(2, RoundingMode.HALF_UP) + " €" ;
+        chaine = chaine + "\nMontant total TTC du stock : " + BigDecimal.valueOf(getMontantTotalTTC()).setScale(2, RoundingMode.HALF_UP) + " €";
         return chaine.replace(".", ",");
-        
-        
+
     }
 
     @Override
@@ -53,7 +51,7 @@ public class Catalogue implements I_Catalogue {
 
     @Override
     public boolean addProduit(String nom, double prix, int qte) {
-        nom = nom.replace("\t"," ");
+        nom = nom.replace("\t", " ");
         nom = nom.trim();
         boolean ajoute = true;
         if (prix <= 0 || qte < 0) {
@@ -61,6 +59,7 @@ public class Catalogue implements I_Catalogue {
         }
 
         for (I_Produit p : ensembleProduits) {
+            
             if (p.getNom().equals(nom)) {
                 ajoute = false;
             }
@@ -73,20 +72,30 @@ public class Catalogue implements I_Catalogue {
     }
 
     @Override
-    public int addProduits(List<I_Produit> liste) {
+    public int addProduits(List<I_Produit> catalogNew) {
         int i = 0;
-        if (liste != null) {
-            for (I_Produit prod : liste) {
-             //   for (I_Produit p : ensembleProduits)
-             //       if (p.getNom().equals(prod.getNom()))
-                if (prod.getPrixUnitaireHT() > 0 && prod.getQuantite() >= 0) {
-                    ensembleProduits.add(prod);
+        ArrayList<I_Produit> listeDoublons = new ArrayList<>();
+        ArrayList<I_Produit> listeFinale = new ArrayList<>();
+        
+        if (catalogNew != null) {
+            for (I_Produit produitOld : ensembleProduits) {
+                for (I_Produit produitNew : catalogNew) {
+                    if (produitOld.getNom().equals(produitNew.getNom())) {
+                        listeDoublons.add(produitNew);
+                    }
+
+                }
+            }
+            catalogNew.removeAll(listeDoublons);
+            for (I_Produit produitNew : catalogNew) {
+                if (produitNew.getPrixUnitaireHT() > 0 && produitNew.getQuantite() >= 0) {
+                    ensembleProduits.add(produitNew);
                     i++;
                 }
-
             }
         }
         return i;
+
     }
 
     @Override
@@ -130,8 +139,9 @@ public class Catalogue implements I_Catalogue {
     public boolean vendreStock(String nomProduit, int qteVendue) {
         I_Produit produitVendu = null;
         boolean vendu = false;
-        if (qteVendue <= 0)
+        if (qteVendue <= 0) {
             return false;
+        }
         for (I_Produit prod : ensembleProduits) {
             if (prod.getNom().equals(nomProduit)) {
                 produitVendu = prod;

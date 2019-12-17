@@ -43,6 +43,8 @@ public class Produit implements I_Produit {
     }
 
     public String getNom() {
+        nom = nom.replace("\t"," ");
+        nom = nom.trim();
         return nom;
     }
 
