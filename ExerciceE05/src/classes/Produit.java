@@ -91,7 +91,7 @@ public class Produit implements I_Produit {
             return true;
         } else {
             System.out.println("Stock épuisé ou insuffisant");
-                    return false;
+            return false;
 
         }
 

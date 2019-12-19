@@ -31,7 +31,6 @@ public class FenetreSuppressionProduit extends JFrame implements ActionListener 
 	public void actionPerformed(ActionEvent e) {
 		ControleurProduit ctrlProd = new ControleurProduit();
                 ctrlProd.removeProduit(combo.getSelectedItem().toString());
-                System.out.println(ctrlProd.getCatalogue().toString());
 	}
 
 }
