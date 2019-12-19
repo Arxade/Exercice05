@@ -5,6 +5,7 @@
  */
 package controleurs;
 import classes.Catalogue;
+import javax.swing.*;
 
 /**
  *
@@ -15,7 +16,8 @@ public class ControleurProduit extends Controleur{
     private Catalogue cat = getCatalogue();
         
     public void createProduit(String nom, double prix, int qteStock){
-        cat.addProduit(nom, prix, qteStock);
+        if (cat.addProduit(nom, prix, qteStock) == false)
+            JOptionPane.showMessageDialog(null, "Produit déjà existant ou prix invalide", "Erreur",  JOptionPane.ERROR_MESSAGE);
     }
     
     public void removeProduit(String nom){
