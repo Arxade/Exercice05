@@ -2,6 +2,7 @@ package interfaces;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import controleurs.*;
 
 public class FenetreNouveauProduit extends JFrame implements ActionListener {
 
@@ -47,7 +48,9 @@ public class FenetreNouveauProduit extends JFrame implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		this.dispose();
+		ControleurProduit ctrlProd = new ControleurProduit();
+                ctrlProd.createProduit(txtNom.getText(), Double.parseDouble(txtPrixHT.getText()), Integer.parseInt(txtQte.getText()));
+                System.out.println(ctrlProd.getCatalogue().toString());
 	}
 
 }

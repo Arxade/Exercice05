@@ -13,7 +13,7 @@ import classes.Catalogue;
  */
 public class Controleur {
     
-    private static Catalogue catalogue;
+    private static Catalogue catalogue = new Catalogue();
     
     public Catalogue getCatalogue()
     {

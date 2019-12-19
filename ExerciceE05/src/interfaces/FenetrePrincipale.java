@@ -1,5 +1,6 @@
 package interfaces;
 
+import controleurs.ControleurProduit;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -74,13 +75,14 @@ public class FenetrePrincipale extends JFrame implements ActionListener,
 /* M�me chose pour tabCategories (partie 4) */ 		
 //		String[] tabCategories = new String[] {"Bio", "Luxe" };
 		
+ControleurProduit ctrlProduit = new ControleurProduit();
 		if (e.getSource() == btAfficher)
 			new FenetreAffichage("ajourd'hui nous allons faire de la programmation en 5 couches");
 		if (e.getSource() == btNouveauProduit)
 //			new FenetreNouveauProduit(tabCategories);
 			new FenetreNouveauProduit();
 		if (e.getSource() == btSupprimerProduit)
-			new FenetreSuppressionProduit(tabProduits);
+			new FenetreSuppressionProduit(ctrlProduit.getNomsProduits());
 //		if (e.getSource() == btNouvelleCategorie)
 //			new FenetreNouvelleCategorie();
 //		if (e.getSource() == btSupprimerCategorie)

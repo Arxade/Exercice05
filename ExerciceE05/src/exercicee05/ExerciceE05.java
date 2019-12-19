@@ -7,6 +7,7 @@ package exercicee05;
 
 import interfaces.FenetrePrincipale;
 import classes.*;
+import controleurs.*;
 
 /**
  *
@@ -20,10 +21,6 @@ public class ExerciceE05 {
     public static void main(String[] args) {
 
         FenetrePrincipale fenetre = new FenetrePrincipale();
-        Produit mars = new Produit("        mars   ", 10, 15);
-        Produit mars2 = new Produit("     mars   ", 10, 15);
-        System.out.println(mars.getNom().equals(mars2.getNom()));
-
     }
 
 }

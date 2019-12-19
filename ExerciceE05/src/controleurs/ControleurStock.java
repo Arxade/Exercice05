@@ -4,11 +4,11 @@
  * and open the template in the editor.
  */
 package controleurs;
-
+import classes.Catalogue;
 /**
  *
  * @author diazt
  */
-public class controleurStock extends Controleur{
+public class ControleurStock extends Controleur{
     
 }
