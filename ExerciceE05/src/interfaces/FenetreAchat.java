@@ -1,4 +1,5 @@
 package interfaces;
+import controleurs.ControleurTransaction;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -33,7 +34,11 @@ public class FenetreAchat extends JFrame implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		this.dispose();
+		if(e.getSource() == btAchat)
+                {
+                    ControleurTransaction ctrT = new ControleurTransaction();
+                    ctrT.enregistrerAchat(combo.getSelectedItem().toString(), Integer.parseInt(txtQuantite.getText()) , FenetreAchat.this);
+                }
 	}
 
 }

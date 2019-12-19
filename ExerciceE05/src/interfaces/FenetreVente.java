@@ -2,6 +2,7 @@ package interfaces;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import controleurs.ControleurTransaction;
 
 public class FenetreVente extends JFrame implements ActionListener {
 
@@ -31,7 +32,11 @@ public class FenetreVente extends JFrame implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		this.dispose();
+		if(e.getSource() == btVente)
+                {
+                    ControleurTransaction ctrT = new ControleurTransaction();
+                    ctrT.enregistrerVente(combo.getSelectedItem().toString(), Integer.parseInt(txtQuantite.getText()), FenetreVente.this);
+                }
 	}
 
 }

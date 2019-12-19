@@ -15,7 +15,7 @@ public class ControleurTransaction extends Controleur{
 
     Catalogue cat = getCatalogue();
     
-    void enregistrerAchat(String nomProduit , int qteAchete , Component laFenetre)
+    public void enregistrerAchat(String nomProduit , int qteAchete , Component laFenetre)
     {
         boolean achete = cat.acheterStock(nomProduit, qteAchete);
         
@@ -23,15 +23,23 @@ public class ControleurTransaction extends Controleur{
         {
             JOptionPane.showMessageDialog(laFenetre, "Achat impossible");
         }
+        else
+        {
+            JOptionPane.showMessageDialog(laFenetre, "Produit acheté");
+        }
     }
     
-    void enregistrerVente(String nomProduit , int qteVendu , Component laFenetre)
+    public void enregistrerVente(String nomProduit , int qteVendu , Component laFenetre)
     {
-        boolean vendu = cat.acheterStock(nomProduit, qteVendu);
+        boolean vendu = cat.vendreStock(nomProduit, qteVendu);
         
         if(!vendu)
         {
-            JOptionPane.showMessageDialog(laFenetre, "Achat impossible");
+            JOptionPane.showMessageDialog(laFenetre, "Vente impossible");
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(laFenetre, "Produit vendu");
         }
     }
     
