@@ -18,6 +18,8 @@ public class ControleurProduit extends Controleur{
     public void createProduit(String nom, double prix, int qteStock){
         if (cat.addProduit(nom, prix, qteStock) == false)
             JOptionPane.showMessageDialog(null, "Produit déjà existant ou prix invalide", "Erreur",  JOptionPane.ERROR_MESSAGE);
+        else
+            JOptionPane.showMessageDialog(null, "Le produit " +nom+ " a bien été créé.", "Produit créé",  JOptionPane.INFORMATION_MESSAGE);
     }
     
     public void removeProduit(String nom){
