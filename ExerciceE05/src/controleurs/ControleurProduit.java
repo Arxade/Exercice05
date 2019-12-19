@@ -22,7 +22,4 @@ public class ControleurProduit extends Controleur{
         cat.removeProduit(nom);
     }
     
-    public String[] getNomsProduits(){
-        return cat.getNomProduits();
-    }
 }

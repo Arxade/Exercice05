@@ -11,4 +11,15 @@ import classes.Catalogue;
  */
 public class ControleurStock extends Controleur{
     
+    private Catalogue cat = getCatalogue();
+    
+    public String getStock(){
+        return cat.toString();
+    }
+    
+        public String[] getNomsProduits(){
+        return cat.getNomProduits();
+    }
+    
+    
 }
