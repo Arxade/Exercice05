@@ -8,6 +8,7 @@ package exercicee05;
 import interfaces.FenetrePrincipale;
 import classes.*;
 import controleurs.*;
+import dao.*;
 
 /**
  *
@@ -19,6 +20,9 @@ public class ExerciceE05 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
+        Connexion co = new Connexion();
+        co.connect();
 
         FenetrePrincipale fenetre = new FenetrePrincipale();
     }
