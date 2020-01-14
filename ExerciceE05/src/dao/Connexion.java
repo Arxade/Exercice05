@@ -18,11 +18,9 @@ import java.util.HashMap;
  * @author diazt
  */
 public class Connexion {
-    protected Connection connection = null;
+    public Connection connection = null;
     protected DatabaseMetaData dbMetadata = null;
     protected Statement statement = null;
- 
-    
     
     public boolean connect(){
         try {

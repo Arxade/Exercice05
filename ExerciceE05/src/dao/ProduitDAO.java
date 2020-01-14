@@ -1,6 +1,11 @@
 package dao;
 
 import classes.Produit;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -15,9 +20,18 @@ import classes.Produit;
 public class ProduitDAO {
     
     Connexion co;
-    public ProduitDAO(Connexion con)
+    private Connection connect = null;
+    private Statement st = null;
+    
+    public ProduitDAO(Connexion connexion)
     {
-        co = con;
+        try {
+            co = connexion;
+            connect = co.connection;
+            st = connect.createStatement();
+        } catch (SQLException ex) {
+            Logger.getLogger(ProduitDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     public void insert(Produit produit)
@@ -27,7 +41,12 @@ public class ProduitDAO {
     
     public void delete(Produit produit)
     {
-        String requete = "DELETE FROM PRODUITS WHERE NOMPRODUIT = " + produit.getNom();
+        try {
+            String requete = "DELETE FROM PRODUITS WHERE NOMPRODUIT = " + produit.getNom();
+            st.executeUpdate(requete);
+        } catch (SQLException ex) {
+            System.out.println("Erreur suppression" + ex);
+        }
     }
     
     public void updateNom(Produit produit , String nouveauNom)
