@@ -49,8 +49,7 @@ public class FenetreNouveauProduit extends JFrame implements ActionListener {
 
 	public void actionPerformed(ActionEvent e) {
 		ControleurProduit ctrlProd = new ControleurProduit();
-                ctrlProd.createProduit(txtNom.getText(), Double.parseDouble(txtPrixHT.getText()), Integer.parseInt(txtQte.getText()));
-                
+                ctrlProd.createProduit(txtNom.getText(), Double.parseDouble(txtPrixHT.getText()), Integer.parseInt(txtQte.getText()));     
 	}
 
 }

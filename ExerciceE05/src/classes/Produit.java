@@ -21,7 +21,6 @@ public class Produit implements I_Produit {
     static private BigDecimal tauxTVADecimal = BigDecimal.valueOf(tauxTVA);
 
     public Produit() {
-
     }
 
     public Produit(String nom, double prixUnitaireHT, int quantiteStock) {
@@ -31,7 +30,6 @@ public class Produit implements I_Produit {
         this.nom = nom.trim();
         this.prixUnitaireHT = prixUnitaireHT;}
         this.prixDecimal = BigDecimal.valueOf(prixUnitaireHT).setScale(2, RoundingMode.HALF_UP );
-
     }
 
     public int getQuantiteStock() {
@@ -60,6 +58,14 @@ public class Produit implements I_Produit {
     public void setPrixUnitaireHT(double prixUnitaireHT) {
         this.prixUnitaireHT = prixUnitaireHT;
         this.prixDecimal = BigDecimal.valueOf(prixUnitaireHT).setScale(2, RoundingMode.HALF_UP );
+    }
+
+    public BigDecimal getPrixDecimal() {
+        return prixDecimal;
+    }
+
+    public void setPrixDecimal(BigDecimal prixDecimal) {
+        this.prixDecimal = prixDecimal;
     }
 
     public static double getTauxTVA() {
@@ -92,9 +98,7 @@ public class Produit implements I_Produit {
         } else {
             System.out.println("Stock épuisé ou insuffisant");
             return false;
-
         }
-
     }
 
     @Override
