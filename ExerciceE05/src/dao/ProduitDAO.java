@@ -1,11 +1,12 @@
 package dao;
 
-import classes.Produit;
+import classes.*;
 import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -52,16 +53,23 @@ public class ProduitDAO extends Connexion {
         }
     }
 
-    public ResultSet readAll() {
-        ResultSet resultat = null;
+    public ArrayList<I_Produit> readAll() {
+        ResultSet rs = null;
+        ArrayList<I_Produit> lesProduits = new ArrayList<>();
         try {
             statement = connection.createStatement();
             String requete = "SELECT * FROM PRODUITS";
-            resultat = statement.executeQuery(requete);
+            rs = statement.executeQuery(requete);
+            while (rs.next())
+            {
+                I_Produit leProduit = new Produit(rs.getString("NOMPRODUIT"), rs.getDouble("PRIXHTPRODUIT"), rs.getInt("QTESTOCKPRODUIT"));
+                lesProduits.add(leProduit);
+            }
         } catch (SQLException ex) {
             System.out.println("Erreur read : " + ex);
         }
-        return resultat;
+        System.out.println(lesProduits);
+        return lesProduits;
     }
 
     public Produit read(String nomProduit) {
@@ -80,11 +88,17 @@ public class ProduitDAO extends Connexion {
         String requete = "UPDATE PRODUITS SET NOMPRODUIT = ? WHERE NOMPRODUIT = " + ancienNom;
     }
 
-    public void updatePrixHT(String nomProduit, BigDecimal ancienPrix, BigDecimal nouveauPrix) {
+    public void updatePrixHT(String nomProduit, BigDecimal nouveauPrix) {
         String requete = "UPDATE PRODUITS SET PRIXHTPRODUIT = ? WHERE NOMPRODUIT = " +nomProduit;
     }
     
-    public void updateStock(String nomProduit, int ancienStock, int nouveauStock) {
-        String requete = "UPDATE PRODUITS SET PRIXHTPRODUIT = ? WHERE NOMPRODUIT = " + nomProduit;
+    public void updateStock(String nomProduit, int nouveauStock) {
+        try {
+            statement = connection.createStatement();
+            String requete = "UPDATE PRODUITS SET QTESTOCKPRODUIT = " + nouveauStock + " WHERE NOMPRODUIT = " + nomProduit;
+            statement.executeQuery(requete);
+        } catch (SQLException ex) {
+            Logger.getLogger(ProduitDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

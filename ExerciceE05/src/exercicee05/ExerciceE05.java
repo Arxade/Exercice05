@@ -22,6 +22,8 @@ public class ExerciceE05 {
     public static void main(String[] args) {
 
         FenetrePrincipale fenetre = new FenetrePrincipale();
+       // ProduitDAO dao = new ProduitDAO();
+       // dao.readAll();
     }
 
 }
