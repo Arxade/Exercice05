@@ -42,10 +42,11 @@ public class ProduitDAO extends Connexion {
     }
 
     public boolean delete(String nomProduit) {
-        String requete = "DELETE FROM PRODUITS WHERE NOMPRODUIT = " + nomProduit;
+        String requete = "DELETE FROM PRODUITS WHERE NOMPRODUIT = ? ";
         try {
-            statement = connection.createStatement();
-            statement.executeUpdate(requete);
+            preparedStatement = connection.prepareStatement(requete);
+            preparedStatement.setString(1, nomProduit);
+            preparedStatement.executeUpdate();
             return true;
         } catch (SQLException ex) {
             System.out.println("Erreur suppression de produit : " + ex);
