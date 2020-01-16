@@ -74,11 +74,14 @@ public class ProduitDAO extends Connexion {
     }
 
     public Produit read(String nomProduit) {
+        ResultSet rs = null;
         Produit produit = null;
         try {
             statement = connection.createStatement();
-            String requete = "SELECT * FROM PRODUITS WHERE NOMPRODUIT = " + nomProduit;
-            statement.executeQuery(requete);
+            String requete = "SELECT * FROM PRODUITS WHERE NOMPRODUIT = '" + nomProduit + "'";
+            rs = statement.executeQuery(requete);
+            rs.next();
+            produit = new Produit(rs.getString("NOMPRODUIT"), rs.getDouble("PRIXHTPRODUIT"), rs.getInt("QTESTOCKPRODUIT"));
         } catch (SQLException ex) {
             System.out.println("Erreur read : " + ex);
         }
@@ -107,9 +110,11 @@ public class ProduitDAO extends Connexion {
     
     public void updateStock(String nomProduit, int nouveauStock) {
         try {
-            statement = connection.createStatement();
-            String requete = "UPDATE PRODUITS SET QTESTOCKPRODUIT = " + nouveauStock + " WHERE NOMPRODUIT = " + nomProduit;
-            statement.executeQuery(requete);
+            String requete = "UPDATE PRODUITS SET QTESTOCKPRODUIT = ? WHERE NOMPRODUIT = ? ";
+            preparedStatement = connection.prepareStatement(requete);
+            preparedStatement.setInt(1, nouveauStock);
+            preparedStatement.setString(2, nomProduit);
+            preparedStatement.executeQuery();
         } catch (SQLException ex) {
             Logger.getLogger(ProduitDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
