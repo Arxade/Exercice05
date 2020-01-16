@@ -87,14 +87,6 @@ public class ProduitDAO extends Connexion {
         }
         return produit;
     }
-
-    public void updateNom(String ancienNom, String nouveauNom) {
-        String requete = "UPDATE PRODUITS SET NOMPRODUIT = ? WHERE NOMPRODUIT = " + ancienNom;
-    }
-
-    public void updatePrixHT(String nomProduit, BigDecimal nouveauPrix) {
-        String requete = "UPDATE PRODUITS SET PRIXHTPRODUIT = ? WHERE NOMPRODUIT = " +nomProduit;
-    }
     
     public void updateStock(String nomProduit, int nouveauStock) {
         try {
