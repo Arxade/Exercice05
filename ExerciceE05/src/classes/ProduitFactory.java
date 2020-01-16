@@ -11,8 +11,15 @@ package classes;
  */
 public class ProduitFactory {
     
-    public static I_Produit createProduit()
-    {
+    protected ProduitFactory(){
+    
+    }
+
+    public static I_Produit createProduit() {
         return new Produit();
+    }
+
+    public static I_Produit createProduit(String nomProduit, double prixHTProduit, int qteStock) {
+        return new Produit(nomProduit, prixHTProduit, qteStock);
     }
 }
