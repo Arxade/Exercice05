@@ -87,26 +87,6 @@ public class ProduitDAO extends Connexion {
         }
         return produit;
     }
-
-    public void updateNom(String ancienNom, String nouveauNom) {
-        try {
-            statement = connection.createStatement();
-            String requete = "UPDATE PRODUITS SET NOMPRODUIT = " + nouveauNom + " WHERE NOMPRODUIT = " + ancienNom;
-            statement.executeQuery(requete);
-        } catch (SQLException ex) {
-            Logger.getLogger(ProduitDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    public void updatePrixHT(String nomProduit, BigDecimal nouveauPrix) {
-        try {
-            statement = connection.createStatement();
-            String requete = "UPDATE PRODUITS SET PRIXHTPRODUIT = " + nouveauPrix + " WHERE NOMPRODUIT = " + nomProduit;
-            statement.executeQuery(requete);
-        } catch (SQLException ex) {
-            Logger.getLogger(ProduitDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
     
     public void updateStock(String nomProduit, int nouveauStock) {
         try {
