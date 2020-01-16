@@ -11,4 +11,8 @@ package classes;
  */
 public class ProduitFactory {
     
+    public static I_Produit createProduit()
+    {
+        return new Produit();
+    }
 }
