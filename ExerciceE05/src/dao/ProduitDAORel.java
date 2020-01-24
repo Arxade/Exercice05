@@ -1,8 +1,12 @@
 package dao;
 
 import classes.*;
+import java.awt.HeadlessException;
 import java.math.BigDecimal;
 import java.sql.Connection;
+import java.sql.DatabaseMetaData;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -19,12 +23,30 @@ import java.util.logging.Logger;
  *
  * @author diazt
  */
-public class ProduitDAO extends Connexion {
+public class ProduitDAORel implements I_ProduitDAO {
 
-    public ProduitDAO() {
+    private Connection connection = null;
+    private DatabaseMetaData dbMetadata = null;
+    private Statement statement = null;
+    private PreparedStatement preparedStatement = null;
+
+    @Override
+    public boolean connect() {
+        try {
+            String url = "jdbc:oracle:thin:@162.38.222.149:1521:iut";
+            connection = DriverManager.getConnection(url, "diazt", "1107013536H");
+            return true;
+        } catch (HeadlessException | SQLException e) {
+            javax.swing.JOptionPane.showMessageDialog(null, e);
+            return false;
+        }
+    }
+
+    public ProduitDAORel() {
         this.connect();
     }
 
+    @Override
     public boolean create(Produit produit) {
         String requete = "INSERT INTO PRODUITS (idProduit, nomProduit, prixHTProduit, QteStockProduit) "
                 + "VALUES (seqProduits.nextval,?,?,?)";
@@ -41,6 +63,7 @@ public class ProduitDAO extends Connexion {
         }
     }
 
+    @Override
     public boolean delete(String nomProduit) {
         String requete = "DELETE FROM PRODUITS WHERE NOMPRODUIT = " + nomProduit;
         try {
@@ -53,6 +76,7 @@ public class ProduitDAO extends Connexion {
         }
     }
 
+    @Override
     public ArrayList<I_Produit> readAll() {
         ResultSet rs = null;
         ArrayList<I_Produit> lesProduits = new ArrayList<>();
@@ -60,8 +84,7 @@ public class ProduitDAO extends Connexion {
             statement = connection.createStatement();
             String requete = "SELECT * FROM PRODUITS";
             rs = statement.executeQuery(requete);
-            while (rs.next())
-            {
+            while (rs.next()) {
                 I_Produit leProduit = new Produit(rs.getString("NOMPRODUIT"), rs.getDouble("PRIXHTPRODUIT"), rs.getInt("QTESTOCKPRODUIT"));
                 lesProduits.add(leProduit);
             }
@@ -72,6 +95,7 @@ public class ProduitDAO extends Connexion {
         return lesProduits;
     }
 
+    @Override
     public Produit read(String nomProduit) {
         Produit produit = null;
         try {
@@ -84,21 +108,13 @@ public class ProduitDAO extends Connexion {
         return produit;
     }
 
-    public void updateNom(String ancienNom, String nouveauNom) {
-        String requete = "UPDATE PRODUITS SET NOMPRODUIT = ? WHERE NOMPRODUIT = " + ancienNom;
-    }
-
-    public void updatePrixHT(String nomProduit, BigDecimal nouveauPrix) {
-        String requete = "UPDATE PRODUITS SET PRIXHTPRODUIT = ? WHERE NOMPRODUIT = " +nomProduit;
-    }
-    
     public void updateStock(String nomProduit, int nouveauStock) {
         try {
             statement = connection.createStatement();
             String requete = "UPDATE PRODUITS SET QTESTOCKPRODUIT = " + nouveauStock + " WHERE NOMPRODUIT = " + nomProduit;
             statement.executeQuery(requete);
         } catch (SQLException ex) {
-            Logger.getLogger(ProduitDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ProduitDAORel.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }
