@@ -65,10 +65,11 @@ public class ProduitDAORel implements I_ProduitDAO {
 
     @Override
     public boolean delete(String nomProduit) {
-        String requete = "DELETE FROM PRODUITS WHERE NOMPRODUIT = " + nomProduit;
+        String requete = "DELETE FROM PRODUITS WHERE NOMPRODUIT = ? ";
         try {
-            statement = connection.createStatement();
-            statement.executeUpdate(requete);
+            preparedStatement = connection.prepareStatement(requete);
+            preparedStatement.setString(1, nomProduit);
+            preparedStatement.executeUpdate();
             return true;
         } catch (SQLException ex) {
             System.out.println("Erreur suppression de produit : " + ex);
@@ -97,11 +98,15 @@ public class ProduitDAORel implements I_ProduitDAO {
 
     @Override
     public Produit read(String nomProduit) {
+        ResultSet rs = null;
         Produit produit = null;
         try {
-            statement = connection.createStatement();
-            String requete = "SELECT * FROM PRODUITS WHERE NOMPRODUIT = " + nomProduit;
-            statement.executeQuery(requete);
+            String requete = "SELECT * FROM PRODUITS WHERE NOMPRODUIT = ?";
+            preparedStatement = connection.prepareStatement(requete);
+            preparedStatement.setString(1, nomProduit);
+            rs = preparedStatement.executeQuery();
+            rs.next();
+            produit = new Produit(rs.getString("NOMPRODUIT"), rs.getDouble("PRIXHTPRODUIT"), rs.getInt("QTESTOCKPRODUIT"));
         } catch (SQLException ex) {
             System.out.println("Erreur read : " + ex);
         }
@@ -110,9 +115,11 @@ public class ProduitDAORel implements I_ProduitDAO {
 
     public void updateStock(String nomProduit, int nouveauStock) {
         try {
-            statement = connection.createStatement();
-            String requete = "UPDATE PRODUITS SET QTESTOCKPRODUIT = " + nouveauStock + " WHERE NOMPRODUIT = " + nomProduit;
-            statement.executeQuery(requete);
+            String requete = "UPDATE PRODUITS SET QTESTOCKPRODUIT = ? WHERE NOMPRODUIT = ? ";
+            preparedStatement = connection.prepareStatement(requete);
+            preparedStatement.setInt(1, nouveauStock);
+            preparedStatement.setString(2, nomProduit);
+            preparedStatement.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ProduitDAORel.class.getName()).log(Level.SEVERE, null, ex);
         }
