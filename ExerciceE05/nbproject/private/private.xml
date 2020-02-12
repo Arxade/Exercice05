@@ -3,18 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/licence/diazt/ExerciceE05/ExerciceE05/ExerciceE05/src/controleurs/ControleurProduit.java</file>
-            <file>file:/home/licence/diazt/ExerciceE05/ExerciceE05/ExerciceE05/src/classes/Produit.java</file>
-            <file>file:/home/licence/diazt/ExerciceE05/ExerciceE05/ExerciceE05/src/controleurs/Controleur.java</file>
-            <file>file:/home/licence/diazt/ExerciceE05/ExerciceE05/ExerciceE05/src/classes/Catalogue.java</file>
-            <file>file:/home/licence/diazt/ExerciceE05/ExerciceE05/ExerciceE05/src/dao/ProduitDAO.java</file>
-            <file>file:/home/licence/diazt/ExerciceE05/ExerciceE05/ExerciceE05/src/interfaces/FenetreSuppressionProduit.java</file>
-            <file>file:/home/licence/diazt/ExerciceE05/ExerciceE05/ExerciceE05/src/controleurs/ControleurTransaction.java</file>
-            <file>file:/home/licence/diazt/ExerciceE05/ExerciceE05/ExerciceE05/src/classes/I_Catalogue.java</file>
-            <file>file:/home/licence/diazt/ExerciceE05/ExerciceE05/ExerciceE05/src/dao/Connexion.java</file>
-            <file>file:/home/licence/diazt/ExerciceE05/ExerciceE05/ExerciceE05/src/controleurs/ControleurStock.java</file>
-            <file>file:/home/licence/diazt/ExerciceE05/ExerciceE05/ExerciceE05/src/exercicee05/ExerciceE05.java</file>
-            <file>file:/home/licence/diazt/ExerciceE05/ExerciceE05/ExerciceE05/src/interfaces/FenetrePrincipale.java</file>
+            <file>file:/D:/NetBeans/git/ExerciceE05/ExerciceE05/src/controleurs/ControleurTransaction.java</file>
+            <file>file:/D:/NetBeans/git/ExerciceE05/ExerciceE05/src/interfaces/FenetreVente.java</file>
+            <file>file:/D:/NetBeans/git/ExerciceE05/ExerciceE05/src/controleurs/ControleurProduit.java</file>
+            <file>file:/D:/NetBeans/git/ExerciceE05/ExerciceE05/src/dao/Connexion.java</file>
+            <file>file:/D:/NetBeans/git/ExerciceE05/ExerciceE05/src/classes/ProduitFactory.java</file>
+            <file>file:/D:/NetBeans/git/ExerciceE05/ExerciceE05/src/dao/ProduitDAO.java</file>
+            <file>file:/D:/NetBeans/git/ExerciceE05/ExerciceE05/src/classes/Catalogue.java</file>
+            <file>file:/D:/NetBeans/git/ExerciceE05/ExerciceE05/src/interfaces/FenetrePrincipale.java</file>
+            <file>file:/D:/NetBeans/git/ExerciceE05/ExerciceE05/src/controleurs/Controleur.java</file>
+            <file>file:/D:/NetBeans/git/ExerciceE05/ExerciceE05/src/classes/Produit.java</file>
+            <file>file:/D:/NetBeans/git/ExerciceE05/ExerciceE05/src/interfaces/FenetreAchat.java</file>
         </group>
     </open-files>
 </project-private>
