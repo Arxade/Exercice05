@@ -15,7 +15,7 @@ import javax.swing.*;
 public class ControleurProduit extends Controleur {
 
     private Catalogue cat = getCatalogue();
-    private ProduitDAORel dao = new ProduitDAORel();
+    private I_ProduitDAO dao = ProduitDAOFactory.createProduitDAO();
 
     public void createProduit(String nom, double prix, int qteStock) {
         Produit produit = null;

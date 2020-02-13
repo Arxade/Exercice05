@@ -33,4 +33,6 @@ public interface I_ProduitDAO {
     public ArrayList<I_Produit> readAll();
 
     public Produit read(String nomProduit);
+    
+    public void updateStock(String nomProduit, int nouveauStock);
 }

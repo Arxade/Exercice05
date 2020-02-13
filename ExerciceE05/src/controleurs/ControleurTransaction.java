@@ -6,6 +6,8 @@
 package controleurs;
 import classes.Catalogue;
 import classes.Produit;
+import dao.I_ProduitDAO;
+import dao.ProduitDAOFactory;
 import dao.ProduitDAORel;
 import java.awt.Component;
 import javax.swing.JOptionPane;
@@ -28,7 +30,7 @@ public class ControleurTransaction extends Controleur{
         else
         {
             JOptionPane.showMessageDialog(laFenetre, "Produit acheté");
-            ProduitDAORel dao = new ProduitDAORel();
+            I_ProduitDAO dao = ProduitDAOFactory.createProduitDAO();
             Produit produit = dao.read(nomProduit);
             int nouveauStock = produit.getQuantite() + qteAchete;
             dao.updateStock(nomProduit, nouveauStock);
@@ -46,7 +48,7 @@ public class ControleurTransaction extends Controleur{
         else
         {
             JOptionPane.showMessageDialog(laFenetre, "Produit vendu");
-            ProduitDAORel dao = new ProduitDAORel();
+            I_ProduitDAO dao = ProduitDAOFactory.createProduitDAO();
             Produit produit = dao.read(nomProduit);
             int nouveauStock = produit.getQuantite() - qteVendu;
             dao.updateStock(nomProduit, nouveauStock);

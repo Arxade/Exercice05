@@ -6,6 +6,8 @@
 package controleurs;
 
 import classes.Catalogue;
+import dao.I_ProduitDAO;
+import dao.ProduitDAOFactory;
 import dao.ProduitDAORel;
 
 /**
@@ -18,7 +20,7 @@ public class Controleur {
     
     public Catalogue getCatalogue()
     {
-        ProduitDAORel dao = new ProduitDAORel();
+        I_ProduitDAO dao = ProduitDAOFactory.createProduitDAO();
         catalogue.clear();
         catalogue.addProduits(dao.readAll());
         return catalogue;
