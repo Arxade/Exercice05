@@ -18,6 +18,11 @@ public class AdaptateurProduitDAO_XML implements I_ProduitDAO{
 
     ProduitDAO_XML produitDAO_XML;
     
+    
+    public AdaptateurProduitDAO_XML()
+    {
+        this.connect();
+    }
     @Override
     public boolean connect() {
         try
