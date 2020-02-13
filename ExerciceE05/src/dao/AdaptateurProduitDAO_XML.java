@@ -7,6 +7,7 @@ package dao;
 
 import classes.I_Produit;
 import classes.Produit;
+import classes.ProduitFactory;
 import java.util.ArrayList;
 
 /**
@@ -37,18 +38,18 @@ public class AdaptateurProduitDAO_XML implements I_ProduitDAO{
 
     @Override
     public boolean delete(String nomProduit) {
-        
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        I_Produit p = new Produit(nomProduit, 0, 0);
+        return produitDAO_XML.supprimer(p);
     }
 
     @Override
     public ArrayList<I_Produit> readAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return (ArrayList) produitDAO_XML.lireTous();
     }
 
     @Override
     public Produit read(String nomProduit) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return (Produit) produitDAO_XML.lire(nomProduit);
     }
     
 }
