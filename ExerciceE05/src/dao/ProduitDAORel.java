@@ -64,20 +64,6 @@ public class ProduitDAORel implements I_ProduitDAO {
     }
 
     @Override
-    public boolean delete(String nomProduit) {
-        String requete = "DELETE FROM PRODUITS WHERE NOMPRODUIT = ? ";
-        try {
-            preparedStatement = connection.prepareStatement(requete);
-            preparedStatement.setString(1, nomProduit);
-            preparedStatement.executeUpdate();
-            return true;
-        } catch (SQLException ex) {
-            System.out.println("Erreur suppression de produit : " + ex);
-            return false;
-        }
-    }
-
-    @Override
     public ArrayList<I_Produit> readAll() {
         ResultSet rs = null;
         ArrayList<I_Produit> lesProduits = new ArrayList<>();
@@ -113,21 +99,33 @@ public class ProduitDAORel implements I_ProduitDAO {
         return produit;
     }
 
-    public void updateStock(String nomProduit, int nouveauStock) {
+    @Override
+    public boolean update(Produit produit) {
         try {
             String requete = "UPDATE PRODUITS SET QTESTOCKPRODUIT = ? WHERE NOMPRODUIT = ? ";
             preparedStatement = connection.prepareStatement(requete);
-            preparedStatement.setInt(1, nouveauStock);
-            preparedStatement.setString(2, nomProduit);
+            preparedStatement.setInt(1, produit.getQuantite());
+            preparedStatement.setString(2, produit.getNom());
             preparedStatement.executeUpdate();
+            return true;
         } catch (SQLException ex) {
             Logger.getLogger(ProduitDAORel.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
         }
     }
 
     @Override
-    public void update(Produit produit) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean delete(Produit produit) {
+        String requete = "DELETE FROM PRODUITS WHERE NOMPRODUIT = ? ";
+        try {
+            preparedStatement = connection.prepareStatement(requete);
+            preparedStatement.setString(1, produit.getNom());
+            preparedStatement.executeUpdate();
+            return true;
+        } catch (SQLException ex) {
+            System.out.println("Erreur suppression de produit : " + ex);
+            return false;
+        }
     }
     
     

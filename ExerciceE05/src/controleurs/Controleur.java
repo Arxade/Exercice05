@@ -17,10 +17,10 @@ import dao.ProduitDAORel;
 public class Controleur {
     
     private static Catalogue catalogue = new Catalogue();
+    private I_ProduitDAO dao = ProduitDAOFactory.createProduitDAOXML();
     
     public Catalogue getCatalogue()
     {
-        I_ProduitDAO dao = ProduitDAOFactory.createProduitDAOXML();
         catalogue.clear();
         catalogue.addProduits(dao.readAll());
         return catalogue;

@@ -18,6 +18,7 @@ import javax.swing.JOptionPane;
 public class ControleurTransaction extends Controleur{
 
     Catalogue cat = getCatalogue();
+    private I_ProduitDAO dao = ProduitDAOFactory.createProduitDAOXML();
     
     public void enregistrerAchat(String nomProduit, int qteAchete, Component laFenetre)
     {
@@ -29,7 +30,6 @@ public class ControleurTransaction extends Controleur{
         }
         else
         {
-            I_ProduitDAO dao = ProduitDAOFactory.createProduitDAOXML();
             Produit produit = dao.read(nomProduit);
             produit.setQuantiteStock(produit.getQuantite() + qteAchete);
             dao.update(produit);
@@ -47,7 +47,6 @@ public class ControleurTransaction extends Controleur{
         }
         else
         {
-            I_ProduitDAO dao = ProduitDAOFactory.createProduitDAOXML();
             Produit produit = dao.read(nomProduit);
             produit.setQuantiteStock(produit.getQuantite() - QteVendue);
             dao.update(produit);

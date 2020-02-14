@@ -29,9 +29,11 @@ public class ControleurProduit extends Controleur {
         }
     }
 
-    public void removeProduit(String nom) {
-        cat.removeProduit(nom);
-        dao.delete(nom);
+    public void removeProduit(String nomProduit) {
+        cat.removeProduit(nomProduit);
+        Produit produit = dao.read(nomProduit);
+        dao.delete(produit);
+        JOptionPane.showMessageDialog(null, "Produit " + produit.getNom() + " supprimé");
     }
 
 }

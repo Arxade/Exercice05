@@ -43,12 +43,6 @@ public class AdaptateurProduitDAO_XML implements I_ProduitDAO{
     }
 
     @Override
-    public boolean delete(String nomProduit) {
-        I_Produit p = new Produit(nomProduit, 0, 0);
-        return produitDAO_XML.supprimer(p);
-    }
-
-    @Override
     public ArrayList<I_Produit> readAll() {
         return (ArrayList) produitDAO_XML.lireTous();
     }
@@ -58,16 +52,18 @@ public class AdaptateurProduitDAO_XML implements I_ProduitDAO{
         return (Produit) produitDAO_XML.lire(nomProduit);
     }
 
+
     @Override
-    public void updateStock(String nomProduit, int nouveauStock) {
-        I_Produit p = ProduitFactory.createProduit(nomProduit, 0, nouveauStock);
-        produitDAO_XML.maj(p);
+    public boolean update(Produit produit) {
+        return produitDAO_XML.maj(produit);
     }
 
     @Override
-    public void update(Produit produit) {
-        produitDAO_XML.maj(produit);
+    public boolean delete(Produit produit) {
+        return produitDAO_XML.supprimer(produit);
     }
+    
+    
     
     
     

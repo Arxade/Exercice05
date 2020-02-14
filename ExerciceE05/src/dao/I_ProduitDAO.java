@@ -27,14 +27,13 @@ public interface I_ProduitDAO {
     public boolean connect();
 
     public boolean create(Produit produit);
-
-    public boolean delete(String nomProduit);
+    
+    public boolean delete(Produit produit);
 
     public ArrayList<I_Produit> readAll();
 
     public Produit read(String nomProduit);
     
-    public void update(Produit produit);
+    public boolean update(Produit produit);
     
-    public void updateStock(String nomProduit, int nouveauStock);
 }
