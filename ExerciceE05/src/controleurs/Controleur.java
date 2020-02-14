@@ -20,7 +20,7 @@ public class Controleur {
     
     public Catalogue getCatalogue()
     {
-        I_ProduitDAO dao = ProduitDAOFactory.createProduitDAO();
+        I_ProduitDAO dao = ProduitDAOFactory.createProduitDAOXML();
         catalogue.clear();
         catalogue.addProduits(dao.readAll());
         return catalogue;

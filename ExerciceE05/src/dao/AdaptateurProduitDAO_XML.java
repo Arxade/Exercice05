@@ -23,6 +23,7 @@ public class AdaptateurProduitDAO_XML implements I_ProduitDAO{
     {
         this.connect();
     }
+    
     @Override
     public boolean connect() {
         try

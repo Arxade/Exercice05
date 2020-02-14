@@ -14,7 +14,11 @@ public class ProduitDAOFactory {
     
     }
 
-    public static I_ProduitDAO createProduitDAO() {
+    public static I_ProduitDAO createProduitDAOXML() {
         return new AdaptateurProduitDAO_XML();
+    }
+    
+    public static I_ProduitDAO createProduitDAORelationnel() {
+        return new ProduitDAORel();
     }
 }

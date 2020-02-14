@@ -30,7 +30,7 @@ public class ControleurTransaction extends Controleur{
         else
         {
             JOptionPane.showMessageDialog(laFenetre, "Produit acheté");
-            I_ProduitDAO dao = ProduitDAOFactory.createProduitDAO();
+            I_ProduitDAO dao = ProduitDAOFactory.createProduitDAOXML();
             Produit produit = dao.read(nomProduit);
             int nouveauStock = produit.getQuantite() + qteAchete;
             dao.updateStock(nomProduit, nouveauStock);
@@ -48,7 +48,7 @@ public class ControleurTransaction extends Controleur{
         else
         {
             JOptionPane.showMessageDialog(laFenetre, "Produit vendu");
-            I_ProduitDAO dao = ProduitDAOFactory.createProduitDAO();
+            I_ProduitDAO dao = ProduitDAOFactory.createProduitDAOXML();
             Produit produit = dao.read(nomProduit);
             int nouveauStock = produit.getQuantite() - qteVendu;
             dao.updateStock(nomProduit, nouveauStock);
