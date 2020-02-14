@@ -63,5 +63,12 @@ public class AdaptateurProduitDAO_XML implements I_ProduitDAO{
         I_Produit p = ProduitFactory.createProduit(nomProduit, 0, nouveauStock);
         produitDAO_XML.maj(p);
     }
+
+    @Override
+    public void update(Produit produit) {
+        produitDAO_XML.maj(produit);
+    }
+    
+    
     
 }

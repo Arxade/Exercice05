@@ -19,7 +19,7 @@ public class ControleurTransaction extends Controleur{
 
     Catalogue cat = getCatalogue();
     
-    public void enregistrerAchat(String nomProduit , int qteAchete , Component laFenetre)
+    public void enregistrerAchat(String nomProduit, int qteAchete, Component laFenetre)
     {
         boolean achete = cat.acheterStock(nomProduit, qteAchete);
         
@@ -29,17 +29,17 @@ public class ControleurTransaction extends Controleur{
         }
         else
         {
-            JOptionPane.showMessageDialog(laFenetre, "Produit acheté");
             I_ProduitDAO dao = ProduitDAOFactory.createProduitDAOXML();
             Produit produit = dao.read(nomProduit);
-            int nouveauStock = produit.getQuantite() + qteAchete;
-            dao.updateStock(nomProduit, nouveauStock);
+            produit.setQuantiteStock(produit.getQuantite() + qteAchete);
+            dao.update(produit);
+            JOptionPane.showMessageDialog(laFenetre, "Produit acheté");
         }
     }
     
-    public void enregistrerVente(String nomProduit , int qteVendu , Component laFenetre)
+    public void enregistrerVente(String nomProduit, int QteVendue, Component laFenetre)
     {
-        boolean vendu = cat.vendreStock(nomProduit, qteVendu);
+        boolean vendu = cat.vendreStock(nomProduit, QteVendue);
         
         if(!vendu)
         {
@@ -47,11 +47,11 @@ public class ControleurTransaction extends Controleur{
         }
         else
         {
-            JOptionPane.showMessageDialog(laFenetre, "Produit vendu");
             I_ProduitDAO dao = ProduitDAOFactory.createProduitDAOXML();
             Produit produit = dao.read(nomProduit);
-            int nouveauStock = produit.getQuantite() - qteVendu;
-            dao.updateStock(nomProduit, nouveauStock);
+            produit.setQuantiteStock(produit.getQuantite() - QteVendue);
+            dao.update(produit);
+            JOptionPane.showMessageDialog(laFenetre, "Produit vendu");
         }
     }
     

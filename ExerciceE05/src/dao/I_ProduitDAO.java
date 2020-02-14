@@ -34,5 +34,7 @@ public interface I_ProduitDAO {
 
     public Produit read(String nomProduit);
     
+    public void update(Produit produit);
+    
     public void updateStock(String nomProduit, int nouveauStock);
 }

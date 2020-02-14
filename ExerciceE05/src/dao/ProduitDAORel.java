@@ -124,4 +124,11 @@ public class ProduitDAORel implements I_ProduitDAO {
             Logger.getLogger(ProduitDAORel.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    @Override
+    public void update(Produit produit) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    
 }
