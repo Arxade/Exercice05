@@ -7,16 +7,7 @@ package dao;
 
 import classes.I_Produit;
 import classes.Produit;
-import java.awt.HeadlessException;
-import java.sql.Connection;
-import java.sql.DatabaseMetaData;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 /**
  *

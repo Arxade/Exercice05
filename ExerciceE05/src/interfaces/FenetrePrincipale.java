@@ -67,35 +67,39 @@ public class FenetrePrincipale extends JFrame implements ActionListener,
 		setVisible(true);
 	}
 
-	public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(ActionEvent e) {
 
-/* tabProduits permet de tester le fonctionnement des fen�tres avec un tableau de noms de produits "en dur"
+        /* tabProduits permet de tester le fonctionnement des fen�tres avec un tableau de noms de produits "en dur"
    Quand l'application fonctionnera, il faudra bien s�r r�cup�rer les noms des produits dans le Catalogue */
-		//String[] tabProduits = new String[] { "Mars", "Raider", "Twix", "Treets", "M&M's", "Smarties" };
-/* M�me chose pour tabCategories (partie 4) */ 		
+        //String[] tabProduits = new String[] { "Mars", "Raider", "Twix", "Treets", "M&M's", "Smarties" };
+/* M�me chose pour tabCategories (partie 4) */
 //		String[] tabCategories = new String[] {"Bio", "Luxe" };
-		
-ControleurStock ctrlStock = new ControleurStock();
-		if (e.getSource() == btAfficher)
-			new FenetreAffichage(ctrlStock.getStock());
-		if (e.getSource() == btNouveauProduit)
-//			new FenetreNouveauProduit(tabCategories);
-			new FenetreNouveauProduit();
-		if (e.getSource() == btSupprimerProduit)
-			new FenetreSuppressionProduit(ctrlStock.getNomsProduits());
+        ControleurStock ctrlStock = new ControleurStock();
+        if (e.getSource() == btAfficher) {
+            new FenetreAffichage(ctrlStock.getStock());
+        }
+        if (e.getSource() == btNouveauProduit) //			new FenetreNouveauProduit(tabCategories);
+        {
+            new FenetreNouveauProduit();
+        }
+        if (e.getSource() == btSupprimerProduit) {
+            new FenetreSuppressionProduit(ctrlStock.getNomsProduits());
+        }
 //		if (e.getSource() == btNouvelleCategorie)
 //			new FenetreNouvelleCategorie();
 //		if (e.getSource() == btSupprimerCategorie)
 //			new FenetreSuppressionCategorie(tabCategories);
-		if (e.getSource() == btAchat)
-			new FenetreAchat(ctrlStock.getNomsProduits());
-		if (e.getSource() == btVente)
-			new FenetreVente(ctrlStock.getNomsProduits());
-		if (e.getSource() == btQuitter){
-			System.out.println("Au revoir");
-			System.exit(0);
-		}	
-	}
+        if (e.getSource() == btAchat) {
+            new FenetreAchat(ctrlStock.getNomsProduits());
+        }
+        if (e.getSource() == btVente) {
+            new FenetreVente(ctrlStock.getNomsProduits());
+        }
+        if (e.getSource() == btQuitter) {
+            System.out.println("Au revoir");
+            System.exit(0);
+        }
+    }
 
 	public void windowClosing(WindowEvent arg0) {
 		System.out.println("Au revoir");

@@ -20,8 +20,9 @@ public class ExerciceE05 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-
+        Controleur ctrl = new Controleur();
         FenetrePrincipale fenetre = new FenetrePrincipale();
+        
     }
 
 }
