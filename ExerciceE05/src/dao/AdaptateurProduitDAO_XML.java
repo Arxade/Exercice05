@@ -16,12 +16,21 @@ import java.util.ArrayList;
  */
 public class AdaptateurProduitDAO_XML implements I_ProduitDAO{
 
-    ProduitDAO_XML produitDAO_XML;
+    private ProduitDAO_XML produitDAO_XML;
+    static private AdaptateurProduitDAO_XML instanceDAO;
     
-    
-    public AdaptateurProduitDAO_XML()
+    protected AdaptateurProduitDAO_XML()
     {
         this.connect();
+    }
+    
+    static public AdaptateurProduitDAO_XML getInstance()
+    {
+        if(instanceDAO == null)
+        {
+            instanceDAO = new AdaptateurProduitDAO_XML();
+        }
+        return instanceDAO;
     }
     
     @Override

@@ -15,10 +15,10 @@ public class ProduitDAOFactory {
     }
 
     public static I_ProduitDAO createProduitDAOXML() {
-        return new AdaptateurProduitDAO_XML();
+        return AdaptateurProduitDAO_XML.getInstance();
     }
     
     public static I_ProduitDAO createProduitDAORelationnel() {
-        return new ProduitDAORel();
+        return ProduitDAORel.getInstance();
     }
 }

@@ -13,6 +13,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import sun.security.jca.GetInstance;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -29,6 +30,16 @@ public class ProduitDAORel implements I_ProduitDAO {
     private DatabaseMetaData dbMetadata = null;
     private Statement statement = null;
     private PreparedStatement preparedStatement = null;
+    private static ProduitDAORel instanceDAO;
+    
+    static public ProduitDAORel getInstance()
+    {
+        if(instanceDAO == null)
+        {
+            instanceDAO = new ProduitDAORel();
+        }
+        return instanceDAO;
+    }
 
     @Override
     public boolean connect() {
@@ -42,7 +53,7 @@ public class ProduitDAORel implements I_ProduitDAO {
         }
     }
 
-    public ProduitDAORel() {
+    protected ProduitDAORel() {
         this.connect();
     }
 
