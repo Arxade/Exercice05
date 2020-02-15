@@ -46,6 +46,7 @@ public class ProduitDAORel implements I_ProduitDAO {
         try {
             String url = "jdbc:oracle:thin:@162.38.222.149:1521:iut";
             connection = DriverManager.getConnection(url, "diazt", "1107013536H");
+            System.out.println("Connexion à la BDD");
             return true;
         } catch (HeadlessException | SQLException e) {
             javax.swing.JOptionPane.showMessageDialog(null, e);

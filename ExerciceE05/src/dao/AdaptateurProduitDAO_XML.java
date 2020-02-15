@@ -37,6 +37,7 @@ public class AdaptateurProduitDAO_XML implements I_ProduitDAO{
     public boolean connect() {
         try
         {
+            System.out.println("Connexion à la BDD");
             produitDAO_XML = new ProduitDAO_XML();
             return true;
         }
