@@ -16,14 +16,17 @@ import dao.ProduitDAORel;
  */
 public class Controleur {
     
-    private static Catalogue catalogue = new Catalogue();
-    private I_ProduitDAO dao = ProduitDAOFactory.createProduitDAOXML();
+    protected I_ProduitDAO dao = ProduitDAOFactory.createProduitDAORelationnel();
+    protected Catalogue catalogue = getCatalogue();
     
-    public Catalogue getCatalogue()
+    protected Catalogue getCatalogue()
     {
-        catalogue.clear();
-        catalogue.addProduits(dao.readAll());
-        return catalogue;
+        Catalogue cat = Catalogue.getInstance();
+        if (cat.estVide() == true) {
+            System.out.println("Chargement du catalogue");
+            cat.addProduits(dao.readAll());
+        }
+        return cat;
     }
     
 }

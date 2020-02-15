@@ -17,15 +17,20 @@ import java.util.Arrays;
 public class Catalogue implements I_Catalogue {
 
     private ArrayList<I_Produit> ensembleProduits;
+    private static Catalogue instance;
 
     public ArrayList<I_Produit> getEnsembleProduits() {
         return ensembleProduits;
     }
-    
-    
 
-    public Catalogue() {
+    protected Catalogue() {
         ensembleProduits = new ArrayList<I_Produit>();
+    }
+    
+    public static Catalogue getInstance(){
+        if (instance == null)
+            instance = new Catalogue();
+        return instance;
     }
 
     @Override
@@ -203,6 +208,13 @@ public class Catalogue implements I_Catalogue {
     @Override
     public void clear() {
         ensembleProduits.removeAll(ensembleProduits);
+    }
+    
+    public Boolean estVide() {
+        if (ensembleProduits.isEmpty()) {
+            return true;
+        }
+        return false;
     }
 
 }

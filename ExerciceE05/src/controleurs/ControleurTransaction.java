@@ -16,13 +16,10 @@ import javax.swing.JOptionPane;
  * @author diazt
  */
 public class ControleurTransaction extends Controleur{
-
-    Catalogue cat = getCatalogue();
-    private I_ProduitDAO dao = ProduitDAOFactory.createProduitDAOXML();
     
     public void enregistrerAchat(String nomProduit, int qteAchete, Component laFenetre)
     {
-        boolean achete = cat.acheterStock(nomProduit, qteAchete);
+        boolean achete = catalogue.acheterStock(nomProduit, qteAchete);
         
         if(!achete)
         {
@@ -39,7 +36,7 @@ public class ControleurTransaction extends Controleur{
     
     public void enregistrerVente(String nomProduit, int QteVendue, Component laFenetre)
     {
-        boolean vendu = cat.vendreStock(nomProduit, QteVendue);
+        boolean vendu = catalogue.vendreStock(nomProduit, QteVendue);
         
         if(!vendu)
         {
