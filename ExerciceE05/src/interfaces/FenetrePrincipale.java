@@ -74,7 +74,9 @@ public class FenetrePrincipale extends JFrame implements ActionListener,
         //String[] tabProduits = new String[] { "Mars", "Raider", "Twix", "Treets", "M&M's", "Smarties" };
 /* M�me chose pour tabCategories (partie 4) */
 //		String[] tabCategories = new String[] {"Bio", "Luxe" };
+
         ControleurStock ctrlStock = new ControleurStock();
+        
         if (e.getSource() == btAfficher) {
             new FenetreAffichage(ctrlStock.getStock());
         }
