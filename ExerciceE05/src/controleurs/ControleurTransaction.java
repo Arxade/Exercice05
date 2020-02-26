@@ -21,16 +21,16 @@ public class ControleurTransaction extends ControleurPrincipal{
     {
         boolean achete = catalogue.acheterStock(nomProduit, qteAchete);
         
-        if(!achete)
-        {
-            JOptionPane.showMessageDialog(laFenetre, "Achat impossible");
-        }
-        else
+        if(achete)
         {
             Produit produit = dao.read(nomProduit);
             produit.setQuantiteStock(produit.getQuantite() + qteAchete);
             dao.update(produit);
             JOptionPane.showMessageDialog(laFenetre, "Produit acheté");
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(laFenetre, "Achat impossible");
         }
     }
     
@@ -38,16 +38,16 @@ public class ControleurTransaction extends ControleurPrincipal{
     {
         boolean vendu = catalogue.vendreStock(nomProduit, QteVendue);
         
-        if(!vendu)
-        {
-            JOptionPane.showMessageDialog(laFenetre, "Vente impossible");
-        }
-        else
+        if(vendu)
         {
             Produit produit = dao.read(nomProduit);
             produit.setQuantiteStock(produit.getQuantite() - QteVendue);
             dao.update(produit);
             JOptionPane.showMessageDialog(laFenetre, "Produit vendu");
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(laFenetre, "Vente impossible");
         }
     }
     

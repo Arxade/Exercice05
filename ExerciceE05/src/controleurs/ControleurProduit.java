@@ -16,13 +16,13 @@ public class ControleurProduit extends ControleurPrincipal {
 
     public void createProduit(String nom, double prix, int qteStock) {
         Produit produit = null;
-        if (catalogue.addProduit(nom, prix, qteStock) == false) {
-            JOptionPane.showMessageDialog(null, "Produit déjà existant ou prix invalide", "Erreur", JOptionPane.ERROR_MESSAGE);
+        if (catalogue.addProduit(nom, prix, qteStock) == true) {
+            produit = new Produit(nom, prix, qteStock);
+            System.out.println(produit.toString());
+            dao.create(produit);
+            JOptionPane.showMessageDialog(null, "Le produit " + nom + " a bien été créé.", "Produit créé", JOptionPane.INFORMATION_MESSAGE);
         } else {
-        produit = new Produit(nom, prix, qteStock);
-        System.out.println(produit.toString());
-        dao.create(produit);
-        JOptionPane.showMessageDialog(null, "Le produit " + nom + " a bien été créé.", "Produit créé", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Produit déjà existant ou prix invalide", "Erreur", JOptionPane.ERROR_MESSAGE);
         }
     }
 
