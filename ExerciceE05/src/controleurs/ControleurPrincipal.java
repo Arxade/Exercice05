@@ -8,7 +8,6 @@ package controleurs;
 import classes.Catalogue;
 import dao.I_ProduitDAO;
 import dao.ProduitDAOFactory;
-import dao.ProduitDAORel;
 
 /**
  *
