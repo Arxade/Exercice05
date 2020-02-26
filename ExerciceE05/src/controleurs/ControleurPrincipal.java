@@ -14,9 +14,9 @@ import dao.ProduitDAORel;
  *
  * @author Alexandre
  */
-public class Controleur {
+public class ControleurPrincipal {
     
-    protected I_ProduitDAO dao = ProduitDAOFactory.createProduitDAORelationnel();
+    protected I_ProduitDAO dao = ProduitDAOFactory.createProduitDAO();
     protected Catalogue catalogue = getCatalogue();
     
     protected Catalogue getCatalogue()

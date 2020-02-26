@@ -11,11 +11,11 @@ import org.jdom.input.*;
 import org.jdom.output.*;
 
 
-public class ProduitDAO_XML {
+public class ProduitDAOXML {
 	private String uri = "D:/Produits.xml";
 	private Document doc;
 
-	public ProduitDAO_XML() {
+	public ProduitDAOXML() {
 		SAXBuilder sdoc = new SAXBuilder();
 		try {
 			doc = sdoc.build(uri);

@@ -8,7 +8,7 @@ package controleurs;
  *
  * @author diazt
  */
-public class ControleurStock extends Controleur{
+public class ControleurStock extends ControleurPrincipal{
     
     public String getStock(){
         return catalogue.toString();

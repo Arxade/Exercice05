@@ -14,11 +14,8 @@ public class ProduitDAOFactory {
     
     }
 
-    public static I_ProduitDAO createProduitDAOXML() {
-        return AdaptateurProduitDAO_XML.getInstance();
+    public static I_ProduitDAO createProduitDAO() {
+        return AdaptateurProduitDAOXML.getInstance();
     }
     
-    public static I_ProduitDAO createProduitDAORelationnel() {
-        return ProduitDAORel.getInstance();
-    }
 }

@@ -12,7 +12,7 @@ import javax.swing.*;
  *
  * @author diazt
  */
-public class ControleurProduit extends Controleur {
+public class ControleurProduit extends ControleurPrincipal {
 
     public void createProduit(String nom, double prix, int qteStock) {
         Produit produit = null;

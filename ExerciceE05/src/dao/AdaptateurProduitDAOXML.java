@@ -14,21 +14,21 @@ import java.util.ArrayList;
  *
  * @author Alexandre
  */
-public class AdaptateurProduitDAO_XML implements I_ProduitDAO{
+public class AdaptateurProduitDAOXML implements I_ProduitDAO{
 
-    private ProduitDAO_XML produitDAO_XML;
-    static private AdaptateurProduitDAO_XML instanceDAO;
+    private ProduitDAOXML produitDAO_XML;
+    static private AdaptateurProduitDAOXML instanceDAO;
     
-    protected AdaptateurProduitDAO_XML()
+    protected AdaptateurProduitDAOXML()
     {
         this.connect();
     }
     
-    static public AdaptateurProduitDAO_XML getInstance()
+    static public AdaptateurProduitDAOXML getInstance()
     {
         if(instanceDAO == null)
         {
-            instanceDAO = new AdaptateurProduitDAO_XML();
+            instanceDAO = new AdaptateurProduitDAOXML();
         }
         return instanceDAO;
     }
@@ -38,7 +38,7 @@ public class AdaptateurProduitDAO_XML implements I_ProduitDAO{
         try
         {
             System.out.println("Connexion à la BDD");
-            produitDAO_XML = new ProduitDAO_XML();
+            produitDAO_XML = new ProduitDAOXML();
             return true;
         }
         catch(Exception e)

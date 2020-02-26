@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
  *
  * @author diazt
  */
-public class ControleurTransaction extends Controleur{
+public class ControleurTransaction extends ControleurPrincipal{
     
     public void enregistrerAchat(String nomProduit, int qteAchete, Component laFenetre)
     {
