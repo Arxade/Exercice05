@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package exercicee05;
+package main;
 
 import interfaces.FenetrePrincipale;
 import classes.*;
@@ -14,13 +14,12 @@ import dao.*;
  *
  * @author diazt
  */
-public class ExerciceE05 {
+public class main {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        ControleurPrincipal ctrl = new ControleurPrincipal();
         FenetrePrincipale fenetre = new FenetrePrincipale();
         
     }

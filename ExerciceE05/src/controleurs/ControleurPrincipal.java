@@ -8,6 +8,7 @@ package controleurs;
 import classes.Catalogue;
 import dao.I_ProduitDAO;
 import dao.ProduitDAOFactory;
+import interfaces.FenetrePrincipale;
 
 /**
  *
@@ -17,6 +18,9 @@ public class ControleurPrincipal {
     
     protected I_ProduitDAO dao = ProduitDAOFactory.createProduitDAO();
     protected Catalogue catalogue = getCatalogue();
+    
+    public ControleurPrincipal() {
+    }
     
     protected Catalogue getCatalogue()
     {
