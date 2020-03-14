@@ -16,20 +16,17 @@ import interfaces.FenetrePrincipale;
  */
 public class ControleurPrincipal {
     
-    protected I_ProduitDAO dao = ProduitDAOFactory.createProduitDAO("XML");
-    protected Catalogue catalogue = getCatalogue();
+    protected I_ProduitDAO dao = ProduitDAOFactory.createProduitDAO("Relationnel");
+    protected Catalogue catalogue = Catalogue.getInstance();
     
     public ControleurPrincipal() {
+        
     }
     
-    protected Catalogue getCatalogue()
-    {
+    public void chargerCatalogue() {
         Catalogue cat = Catalogue.getInstance();
-        if (cat.estVide() == true) {
-            System.out.println("Chargement du catalogue");
-            cat.addProduits(dao.readAll());
-        }
-        return cat;
+        System.out.println("Chargement du catalogue");
+        cat.addProduits(dao.readAll());
     }
     
 }
