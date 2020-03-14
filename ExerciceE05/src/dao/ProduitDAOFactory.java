@@ -10,12 +10,20 @@ package dao;
  * @author Alexandre
  */
 public class ProduitDAOFactory {
-    protected ProduitDAOFactory(){
-    
+
+    protected ProduitDAOFactory() {
+
     }
 
-    public static I_ProduitDAO createProduitDAO() {
-        return AdaptateurProduitDAOXML.getInstance();
+    public static I_ProduitDAO createProduitDAO(String typeBDD) {
+        switch (typeBDD) {
+            case "Relationnel":
+                return ProduitDAORel.getInstance();
+            case "XML":
+                return AdaptateurProduitDAOXML.getInstance();
+            default:
+                return null;
+        }
     }
-    
+
 }

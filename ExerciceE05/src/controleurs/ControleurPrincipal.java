@@ -16,7 +16,7 @@ import interfaces.FenetrePrincipale;
  */
 public class ControleurPrincipal {
     
-    protected I_ProduitDAO dao = ProduitDAOFactory.createProduitDAO();
+    protected I_ProduitDAO dao = ProduitDAOFactory.createProduitDAO("XML");
     protected Catalogue catalogue = getCatalogue();
     
     public ControleurPrincipal() {
