@@ -5,67 +5,64 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-
-
 public class FenetrePrincipale extends JFrame implements ActionListener,
-		WindowListener {
+        WindowListener {
 
-	private JButton btAfficher;
-	private JButton btNouveauProduit;
-	private JButton btSupprimerProduit;
+    private JButton btAfficher;
+    private JButton btNouveauProduit;
+    private JButton btSupprimerProduit;
 //	private JButton btNouvelleCategorie;
 //	private JButton btSupprimerCategorie;
-	private JButton btAchat;
-	private JButton btVente;
-	private JButton btQuitter;
+    private JButton btAchat;
+    private JButton btVente;
+    private JButton btQuitter;
 
-	
-	public FenetrePrincipale() {
-		
-		setTitle("exercice Produits");
-		setBounds(500, 500, 320, 250);
-		JPanel panAffichage = new JPanel();
-		JPanel panNouveauSupprimerProduit = new JPanel();
+    public FenetrePrincipale() {
+
+        setTitle("exercice Produits");
+        setBounds(500, 500, 320, 250);
+        JPanel panAffichage = new JPanel();
+        JPanel panNouveauSupprimerProduit = new JPanel();
 //		JPanel panNouveauSupprimerCategorie = new JPanel();
-		JPanel panAchatVente = new JPanel();
-		JPanel panQuitter = new JPanel();
-		Container contentPane = getContentPane();
-		contentPane.setLayout(new FlowLayout());
-		btAfficher = new JButton("Quantit�s en stock");
-		btNouveauProduit = new JButton("Nouveau Produit");
-		btSupprimerProduit = new JButton("Supprimer Produit");
+        JPanel panAchatVente = new JPanel();
+        JPanel panQuitter = new JPanel();
+        Container contentPane = getContentPane();
+        contentPane.setLayout(new FlowLayout());
+        btAfficher = new JButton("Quantit�s en stock");
+        btNouveauProduit = new JButton("Nouveau Produit");
+        btSupprimerProduit = new JButton("Supprimer Produit");
 //		btNouvelleCategorie = new JButton("Nouvelle Categorie");
 //		btSupprimerCategorie = new JButton("Supprimer Categorie");
-		btAchat = new JButton("Achat Produits");
-		btVente = new JButton("Vente Produits");
-		btQuitter = new JButton("Quitter");
-		panAffichage.add(btAfficher);
-		panNouveauSupprimerProduit.add(btNouveauProduit); 
-		panNouveauSupprimerProduit.add(btSupprimerProduit);
+        btAchat = new JButton("Achat Produits");
+        btVente = new JButton("Vente Produits");
+        btQuitter = new JButton("Quitter");
+        panAffichage.add(btAfficher);
+        panNouveauSupprimerProduit.add(btNouveauProduit);
+        panNouveauSupprimerProduit.add(btSupprimerProduit);
 //		panNouveauSupprimerCategorie.add(btNouvelleCategorie); 
 //		panNouveauSupprimerCategorie.add(btSupprimerCategorie);
-		panAchatVente.add(btAchat); 
-		panAchatVente.add(btVente);  
-		panQuitter.add(btQuitter);
+        panAchatVente.add(btAchat);
+        panAchatVente.add(btVente);
+        panQuitter.add(btQuitter);
 
-		contentPane.add(panAffichage);
+        contentPane.add(panAffichage);
 //		contentPane.add(panNouveauSupprimerCategorie);
-		contentPane.add(panNouveauSupprimerProduit);
-		contentPane.add(panAchatVente);
-		contentPane.add(panQuitter);
+        contentPane.add(panNouveauSupprimerProduit);
+        contentPane.add(panAchatVente);
+        contentPane.add(panQuitter);
 
-		btAfficher.addActionListener(this);
-		btNouveauProduit.addActionListener(this);
-		btSupprimerProduit.addActionListener(this);
+        btAfficher.addActionListener(this);
+        btNouveauProduit.addActionListener(this);
+        btSupprimerProduit.addActionListener(this);
 //		btNouvelleCategorie.addActionListener(this);
 //		btSupprimerCategorie.addActionListener(this);
-		btAchat.addActionListener(this);
-		btVente.addActionListener(this);
-		btQuitter.addActionListener(this);
-		
-		addWindowListener(this);
-		setVisible(true);
-	}
+        btAchat.addActionListener(this);
+        btVente.addActionListener(this);
+        btQuitter.addActionListener(this);
+
+        addWindowListener(this);
+        setVisible(true);
+    }
 
     public void actionPerformed(ActionEvent e) {
 
@@ -74,9 +71,8 @@ public class FenetrePrincipale extends JFrame implements ActionListener,
         //String[] tabProduits = new String[] { "Mars", "Raider", "Twix", "Treets", "M&M's", "Smarties" };
 /* M�me chose pour tabCategories (partie 4) */
 //		String[] tabCategories = new String[] {"Bio", "Luxe" };
-
         ControleurStock ctrlStock = new ControleurStock();
-        
+
         if (e.getSource() == btAfficher) {
             new FenetreAffichage(ctrlStock.getStock());
         }
@@ -103,22 +99,31 @@ public class FenetrePrincipale extends JFrame implements ActionListener,
         }
     }
 
-	public void windowClosing(WindowEvent arg0) {
-		System.out.println("Au revoir");
-		System.exit(0);
-	}
+    public void windowClosing(WindowEvent arg0) {
+        System.out.println("Au revoir");
+        System.exit(0);
+    }
 
-	public void windowActivated(WindowEvent arg0) {}
-	public void windowClosed(WindowEvent arg0) {}
-	public void windowDeactivated(WindowEvent arg0) {}
-	public void windowDeiconified(WindowEvent arg0) {}
-	public void windowIconified(WindowEvent arg0) {}
-	public void windowOpened(WindowEvent arg0) {}
+    public void windowActivated(WindowEvent arg0) {
+    }
 
-	
-	
-	public static void main(String[] args) {
-		//new FenetrePrincipale();
-	}
+    public void windowClosed(WindowEvent arg0) {
+    }
+
+    public void windowDeactivated(WindowEvent arg0) {
+    }
+
+    public void windowDeiconified(WindowEvent arg0) {
+    }
+
+    public void windowIconified(WindowEvent arg0) {
+    }
+
+    public void windowOpened(WindowEvent arg0) {
+    }
+
+    public static void main(String[] args) {
+        new FenetrePrincipale();
+    }
 
 }
