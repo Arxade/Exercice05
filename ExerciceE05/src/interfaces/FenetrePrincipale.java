@@ -124,6 +124,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener,
 
     public static void main(String[] args) {
         new FenetrePrincipale();
+        ControleurPrincipal ctrl = new ControleurPrincipal();
     }
 
 }
