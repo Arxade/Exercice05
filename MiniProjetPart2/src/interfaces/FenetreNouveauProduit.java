@@ -51,6 +51,7 @@ public class FenetreNouveauProduit extends JFrame implements ActionListener {
         ControleurProduit ctrlProd = new ControleurProduit();
         if (!txtPrixHT.getText().trim().equals("") && !txtQte.getText().trim().equals("") && !txtNom.getText().trim().equals("")) {
             ctrlProd.createProduit(txtNom.getText(), Double.parseDouble(txtPrixHT.getText()), Integer.parseInt(txtQte.getText()));
+            this.dispose();
         } else {
             JOptionPane.showMessageDialog(null, "Veuillez remplir tous les champs");
         }
