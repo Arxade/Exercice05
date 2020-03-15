@@ -9,6 +9,7 @@ public class FenetreAchat extends JFrame implements ActionListener {
 	private JButton btAchat;
 	private JTextField txtQuantite;
 	private JComboBox<String> combo;
+        private ControleurTransaction ctrT = new ControleurTransaction();
 
 	public FenetreAchat(String[] lesProduits) {
 
@@ -36,7 +37,6 @@ public class FenetreAchat extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == btAchat)
                 {
-                    ControleurTransaction ctrT = new ControleurTransaction();
                     ctrT.enregistrerAchat(combo.getSelectedItem().toString(), Integer.parseInt(txtQuantite.getText()) , FenetreAchat.this);
                 }
 	}

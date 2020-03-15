@@ -1,3 +1,3 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <listeProduits>
-<produit nom="Pomme"><prixHT>5.0</prixHT><quantite>3</quantite></produit><produit nom="Poire"><prixHT>5.0</prixHT><quantite>3</quantite></produit><produit nom="Banane"><prixHT>10.0</prixHT><quantite>8</quantite></produit></listeProduits>
+<produit nom="Pomme"><prixHT>5.0</prixHT><quantite>3</quantite></produit><produit nom="Poire"><prixHT>5.0</prixHT><quantite>3</quantite></produit><produit nom="Banane"><prixHT>10.0</prixHT><quantite>8</quantite></produit><produit nom="Orange"><prixHT>10.0</prixHT><quantite>4</quantite></produit></listeProduits>

@@ -8,6 +8,7 @@ public class FenetreSuppressionProduit extends JFrame implements ActionListener 
 
 	private JButton btSupprimer;
 	private JComboBox<String> combo;
+        private ControleurProduit ctrlProd = new ControleurProduit();
 	
 	public FenetreSuppressionProduit(String lesProduits[]) {
 		
@@ -29,7 +30,6 @@ public class FenetreSuppressionProduit extends JFrame implements ActionListener 
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		ControleurProduit ctrlProd = new ControleurProduit();
                 ctrlProd.removeProduit(combo.getSelectedItem().toString());
                 this.dispose();
 	}

@@ -11,6 +11,7 @@ public class FenetreNouveauProduit extends JFrame implements ActionListener {
 	private JTextField txtQte;
 //	private JComboBox<String> combo;
 	private JButton btValider;
+        private ControleurProduit ctrlProd = new ControleurProduit();
 
 //	public FenetreNouveauProduit(String[] lesCategories) {
 	public FenetreNouveauProduit() {	
@@ -48,7 +49,6 @@ public class FenetreNouveauProduit extends JFrame implements ActionListener {
 	}
 
     public void actionPerformed(ActionEvent e) {
-        ControleurProduit ctrlProd = new ControleurProduit();
         if (!txtPrixHT.getText().trim().equals("") && !txtQte.getText().trim().equals("") && !txtNom.getText().trim().equals("")) {
             ctrlProd.createProduit(txtNom.getText(), Double.parseDouble(txtPrixHT.getText()), Integer.parseInt(txtQte.getText()));
             this.dispose();
