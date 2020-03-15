@@ -12,7 +12,7 @@ import org.jdom.output.*;
 
 public class ProduitDAOXML {
 
-    private String uri = "D:/Produits.xml";
+    private String uri = "Produits.xml";
     private Document doc;
 
     public ProduitDAOXML() {
